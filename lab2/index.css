@@ -17,6 +17,12 @@ body {
 
 .sections {
   color: rgb(88, 88, 88);
+  text-decoration: none;
+}
+
+.sections:hover {
+  color:rgb(76, 150, 220);
+  text-decoration: underline;
 }
 
 #twitter-logo {
