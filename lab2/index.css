@@ -23,6 +23,7 @@ body {
   max-width: 30px;
 }
 
-#tweet {
+#tweet-button {
   background-color: rgb(76, 150, 220);
+  margin: 0;
 }
