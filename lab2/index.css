@@ -6,3 +6,23 @@ body {
 }
 
 /* TODO: Create CSS for your Twitter Mockup */
+#header {
+  background-color: rgb(255, 255, 255);
+}
+
+#body {
+  max-width: 1190px;
+  margin: 56px auto;
+}
+
+.sections {
+  color: rgb(88, 88, 88);
+}
+
+#twitter-logo {
+  max-width: 30px;
+}
+
+#tweet {
+  background-color: rgb(76, 150, 220);
+}
