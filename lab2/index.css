@@ -10,7 +10,7 @@ body {
   background-color: rgb(255, 255, 255);
 }
 
-#body {
+.wrapper {
   max-width: 1190px;
   margin: 56px auto;
 }
