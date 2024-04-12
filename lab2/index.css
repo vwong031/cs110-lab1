@@ -12,7 +12,7 @@ body {
   justify-content: space-between;
 }
 
-.wrapper {
+.main {
   max-width: 1190px;
   margin: 56px auto;
 }
@@ -46,6 +46,10 @@ body {
   font-weight: bold;
   font-size: 15px;
   margin-left: 25%;
+}
+
+#tweet-button:hover {
+  cursor: pointer;
 }
 
 #nav {
