@@ -8,6 +8,8 @@ body {
 /* TODO: Create CSS for your Twitter Mockup */
 #header {
   background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-between;
 }
 
 .wrapper {
@@ -18,6 +20,10 @@ body {
 .sections {
   color: rgb(88, 88, 88);
   text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  margin-right: 20%;
+  margin-left: 15%;
 }
 
 .sections:hover {
@@ -30,6 +36,19 @@ body {
 }
 
 #tweet-button {
-  background-color: rgb(76, 150, 220);
-  margin: 0;
+  background-color: rgb(62, 194, 255);
+  border-color: rgb(62, 194, 255);
+  border-width: 3px;
+  border: solid;
+  border-radius: 15px;
+  padding: 5px 20px 5px 20px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 15px;
+  margin-left: 25%;
+}
+
+#nav {
+  display: flex;
+  justify-content: space-between;
 }
