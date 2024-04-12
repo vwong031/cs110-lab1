@@ -13,6 +13,9 @@ body {
 }
 
 .main {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
   max-width: 1190px;
   margin: 56px auto;
 }
@@ -54,5 +57,39 @@ body {
 
 #nav {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+}
+
+.profile {
+  width: 290px;
+  background-color: rgb(141, 112, 220);
+}
+
+.tweets {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 2px;
+  background-color: white;
+}
+
+.tweet {
+  border-bottom: 1px solid #e6ecf0;
+  min-height: 51px;
+}
+
+/* .profile-img-container {
+  z-index: 90;
+  position: absolute;
+} */
+
+.profile-img {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+}
+
+.who-to-follow {
+  width: 290px;
+  background-color: bisque;
 }
