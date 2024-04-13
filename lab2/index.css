@@ -90,7 +90,7 @@ body {
 }
 
 .username {
-  color: rgb(88, 88, 88);
+  color: rgb(111, 111, 111);
   font-size: 15px;
 }
 
@@ -106,6 +106,23 @@ body {
 }
 
 .who-to-follow {
+  display: flex;
+  flex-direction: column;
   width: 290px;
-  background-color: bisque;
+  background-color: rgb(255, 255, 255);
+}
+
+.suggestions {
+  font-size: 18px;
+}
+
+.suggested-profiles {
+  display: flex;
+  background-color: rgb(253, 197, 197);
+  border-bottom: 1px solid #e6ecf0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
 }
