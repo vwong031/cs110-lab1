@@ -74,8 +74,24 @@ body {
 }
 
 .tweet {
+  display: flex;
   border-bottom: 1px solid #e6ecf0;
   min-height: 51px;
+}
+
+.profile-name-spacing {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.profile-name {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.username {
+  color: rgb(88, 88, 88);
+  font-size: 15px;
 }
 
 /* .profile-img-container {
