@@ -4,39 +4,141 @@
     <link rel="stylesheet" type="text/css" href="index.css">
   </head>
   <body>
-    <nav class="header">
-      <ul>
-        <li> <a> Home </a></li>
-        <li> <a> Moments </a></li>
-        <li> <a> Notifications </a></li>
-        <li> <a> Messages </a></li>
-        <li> <a> <img class = "twitter-icon" src = ./images/twitter-logo.png> </a></li>
-        <li><a class="button">Tweet</a></li>
-      </ul>
-    </nav>
-    <div class = "main-content">
-      <div class = "profile"> 
-        <img class = "profile-image" src = ./images/ratatouille.jpg alt = "Avatar">
-        <img class = "banner" src = ./images/ratatouille-banner.png alt = "Banner">
-        <p>Welcome to my twitter page</p>
-      </div>
+    <!-- TODO: Create HTML elements for Twitter mockup inside body -->
+    <nav role="navigation" class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+      <div id="header">
+        <div id="nav">
+          <a class="sections nav-link" href="#">Home</a>
+          <a class="sections nav-link" href="#">Moments</a>
+          <a class="sections nav
+          -link" href="#">Notifications</a>
+          <a class="sections nav-link" href="#">Messages</a>
+        </div>
 
-      <div class = "tweets">
-        <div class = "profile-image">
-          <img src = ./images/ratatouille.jpg alt = "Avatar">
-        </div> 
-        <div class = "tweet-info">
-          <p><strong class = "account-name">Remy</strong> @remy Nov 19</p>
-          <p class = "tweet-content"> Let's make some pasta!</p>
+        <img id="twitter-logo" src="./images/twitter-logo.png" alt="blue bird twitter logo">
+        <button id="tweet-button" class="btn">Tweet</button>
+      </div>
+    </nav>
+    <div class="main">
+      <div class="profile">
+        <div class="banner">
+          <img src="./images/ratatouille-banner.png" alt="black and white ratatouille text banner">
+        </div>
+        <div class="profile-img-container">
+          <img class="profile-img" src="./images/ratatouille.jpg" alt="a profile picture of a blue rat with a chef hat leaning on salt and pepper shakers">
+        </div>
+        <div class="profile-info">
+          <div class="flex flex-col">
+            <span class="profile-info-name">Remy</span>
+            <span class="profile-info-username">@remy</span>
+          </div>
+        </div>
+        <div class="profile-stats">
+          <div class="tweet-follow-following">
+            <div class="tweet-count">
+              <span class="label">Tweets</span>
+              <span class="number">100</span> <!-- Example count -->
+            </div>
+            <div class="following-count">
+              <span class="label">Following</span>
+              <span class="number">50</span> <!-- Example count -->
+            </div>
+            <div class="followers-count">
+              <span class="label">Followers</span>
+              <span class="number">200</span> <!-- Example count -->
+            </div>
+          </div>          
+        
         </div>
       </div>
-    </div>
-    <div class ="who-to-follow">
-      <div class = "follow-rec">
+      <div class="tweets">
+        <div class="tweet">
+          <img class="profile-img" src="./images/ratatouille.jpg" alt="a profile picture of a blue rat with a chef hat leaning on salt and pepper shakers">
+          <div class="flex flex-col">
+            <div class="profile-name-spacing">
+              <div class="profile-name">Remy</div> 
+              <div class="username">@remy <time>Nov 19</time></div></div>
+              <div>I'm taking this class called CS110 and the TAs are all so <strong>cool</strong>!</div>
+          </div>
+        </div>
+        <div class="tweet">
+          <img class="profile-img" src="./images/ratatouille.jpg" alt="a profile picture of a blue rat with a chef hat leaning on salt and pepper shakers">
+          <div class="flex flex-col">
+            <div class="profile-name-spacing">
+              <div class="profile-name">Remy</div>
+              <div class="username">@remy <time>Nov 19</time></div>
+            </div>
+            <div>It's 2007. You just got home from elementary school. Your mom has pizza bagels in thr oven. Ratatouille is in theaters. Life is good</div>
+          </div>
+        </div>
+        <div class="tweet">
+          <img class="profile-img" src="./images/ratatouille.jpg" alt="a profile picture of a blue rat with a chef hat leaning on salt and pepper shakers">
+          <div class="flex flex-col">
+            <div class="profile-name-spacing">
+              <div class="profile-name">Remy</div>
+              <div class="username">@remy <time>Nov 19</time></div>
+            </div>
+            <div>Let's make some pasta!</div>
+          </div>
+        </div>
+        <div class="tweet">
+          <img class="profile-img" src="./images/ratatouille.jpg" alt="a profile picture of a blue rat with a chef hat leaning on salt and pepper shakers">
+          <div class="flex flex-col">
+            <div class="profile-name-spacing">
+              <div class="profile-name">Remy</div>
+              <div class="username">@remy <time>Nov 19</time></div>
+            </div>
+            <div>Let's make some pasta!</div>
+          </div>
+        </div>
+        <div class="tweet">
+          <img class="profile-img" src="./images/ratatouille.jpg" alt="a profile picture of a blue rat with a chef hat leaning on salt and pepper shakers">
+          <div class="flex flex-col">
+            <div class="profile-name-spacing">
+              <div class="profile-name">Remy</div>
+              <div class="username">@remy <time>Nov 19</time></div>
+            </div>
+            <div>Let's make some pasta!</div>
+          </div>
+        </div>
+      </div>
 
-      </div> 
 
+      <div class="who-to-follow">
+        <div class="who-to-follow-block">
+          <div class="who-to-follow-heading">
+          Who to follow
+          </div>
+        </div>
+      
+      <div class="who-to-follow-block">
+        <img class="who-to-follow-pfp" src="./images/linguini.png"/>
+        <div class="flex flex-col">
+        <div class="who-to-follow-content">
+          <div class="who-to-follow-name">
+            Linguini
+          </div>
+          <div class="who-to-follow-username">
+            @linguini
+          </div>
+        </div>
+        <div class="who-to-follow-button">
+          Follow
+        </div>
+        </div>
+        </div>
+        <div class="who-to-follow-block">
+          <img class="who-to-follow-pfp" src="./images/ratatouille.jpg"/>
+          <div class="flex flex-col">
+          <div class="who-to-follow-content">
+          </div>
+          <div class="who-to-follow-button">
+            Follow
+          </div>
+          </div>
+          </div>
+
+      </div>
     </div>
-    <!-- TODO: Create HTML elements for Twitter mockup inside body -->
   </body>
 </html>

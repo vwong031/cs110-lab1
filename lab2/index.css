@@ -5,93 +5,225 @@ body {
   background-color: #e6ecf0;
 }
 
-img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  width: 100%;
-  background-color: white;
-  padding: 10px 20px;
-}
-
-.header ul{
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+/* TODO: Create CSS for your Twitter Mockup */
+#header {
+  background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-.header a{
-  color: black;
-  text-decoration: none;
-  padding: 10px;
-}
-
-.header a:hover{
-  color: blue;
-  text-underline-offset: auto;
-}
-
-.header li{
-  margin-right: 20px;
-}
-
-.twitter-icon {
-  flex: 1; 
-  text-align: center; 
-}
-
-.twitter-icon img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-.follow-rec-header {
+.main {
   display: flex;
-  flex-wrap: wrap;
-}
-
-.main-content{
-  display: flex;
-
-  width: 90;
-  justify-content: center;
-
-  max-width: 1198px;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1190px;
   margin: 56px auto;
 }
 
-.profile {
-  background-color: white;
-  width: 298px;
-}
-
-.tweet-content {
-  background-color: white;
-  border-bottom: 1px solid #e6ecf0;
-  min-height: 51px;
-
-}
-
-.button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #1da1f2;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
+.sections {
+  color: rgb(88, 88, 88);
   text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  margin-right: 20%;
+  margin-left: 15%;
+}
+
+.sections:hover {
+  color:rgb(76, 150, 220);
+  text-decoration: underline;
+}
+
+#twitter-logo {
+  max-width: 30px;
+}
+
+#tweet-button {
+  background-color: rgb(62, 194, 255);
+  border-color: rgb(62, 194, 255);
+  border-width: 3px;
+  border: solid;
+  border-radius: 15px;
+  padding: 5px 20px 5px 20px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 15px;
+  margin-left: 25%;
+}
+
+#tweet-button:hover {
   cursor: pointer;
 }
 
-/* TODO: Create CSS for your Twitter Mockup */
+#nav {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.profile {
+  width: 290px;
+  background-color: rgb(141, 112, 220);
+}
+
+.tweets {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 2px;
+  background-color: white;
+}
+
+.tweet {
+  display: flex;
+  border-bottom: 1px solid #e6ecf0;
+  min-height: 51px;
+}
+
+.profile-name-spacing {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.profile-name {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.username {
+  color: rgb(88, 88, 88);
+  font-size: 15px;
+}
+
+/* .profile-img-container {
+  z-index: 90;
+  position: absolute;
+} */
+
+.profile-img {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+}
+
+.profile-info-username {
+  color: #657786;
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+.profile-info-name {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.profile-info span {
+  display: block;
+}
+
+.profile-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.profile-info > div {
+  text-align: center;
+  width: 100px; 
+}
+
+.who-to-follow {
+  width: 290px;
+  background-color: bisque;
+}
+
+.who-to-follow-block {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e6ecf0;
+}
+
+.who-to-follow-block:last-child {
+  border-bottom: none;
+}
+
+.who-to-follow-pfp {
+  width: 49px;
+  height: 49px;
+  border-radius: 50px;
+  margin-right: 10px;
+}
+
+.who-to-follow-username {
+  color: #657786;
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+.who-to-follow-user {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.who-to-follow-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.who-to-follow-heading {
+  font-size: 19px;
+  font-weight: bold;
+  color: #14171a;
+}
+
+.who-to-follow-button {
+  border: 1px solid #4AB3F4;
+  color: #1da0f2;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 5px;
+  width: 60px;
+  height: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.who-to-follow-button:hover {
+  background: rgba(29, 161, 242, 0.1);
+  cursor: pointer;
+}
+
+
+.tweet-follow-following {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.tweet-follow-following > div {
+  text-align: center;
+  width: 100px; 
+}
+
+.tweet-follow-following span {
+  display: block;
+}
+
+.label {
+  color: black;
+  margin-bottom: 5px;
+}
+
+.number {
+  color: #1da0f2;; 
+}
+
+.tweet-follow-following .tweet-count span,
+.tweet-follow-following .following-count span,
+.tweet-follow-following .followers-count span {
+  text-align: left; 
+  margin-left: 0; 
+  font-weight: bold;
+}
