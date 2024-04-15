@@ -9,6 +9,7 @@ body {
   .who-to-follow {
     display: none;
   }
+
 }
 
 /* TODO: Create CSS for your Twitter Mockup */
@@ -51,7 +52,7 @@ body {
 #twitter-logo {
   max-width: 30px;
   max-height: 30px;
-  margin-right: 275px;
+  margin-right: 540px;
 }
 
 #tweet-button {
