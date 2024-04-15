@@ -55,14 +55,14 @@ body {
   cursor: pointer;
 }
 
-#nav {
+.nav {
   display: flex;
   /* justify-content: space-between; */
 }
 
 .profile {
   width: 290px;
-  background-color: rgb(141, 112, 220);
+  /* background-color: rgb(141, 112, 220); */
 }
 
 .tweets {
@@ -82,11 +82,18 @@ body {
 .profile-name-spacing {
   display: flex;
   margin-bottom: 10px;
+  margin-top: 15px;
 }
 
 .profile-name {
   font-weight: bold;
   margin-right: 5px;
+  margin-left: 5px;
+}
+
+.tweet-spacing {
+  margin-bottom: 15px;
+  margin-left: 5px;
 }
 
 .username {
@@ -94,15 +101,35 @@ body {
   font-size: 15px;
 }
 
-/* .profile-img-container {
-  z-index: 90;
+.banner {
+  /* z-index: 50; */
+  /* position: relative; */
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+}
+
+.profile-img-container {
+  z-index: 2;
   position: absolute;
-} */
+}
 
 .profile-img {
   border-radius: 50%;
   width: 48px;
   height: 48px;
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+.who-to-follow-profile-img {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  margin-left: 10px;
+  margin-top: 20px;
 }
 
 .who-to-follow {
@@ -110,19 +137,36 @@ body {
   flex-direction: column;
   width: 290px;
   background-color: rgb(255, 255, 255);
+  height: 225px;
 }
 
 .suggestions {
   font-size: 18px;
+  margin-left: 8px;
 }
 
 .suggested-profiles {
   display: flex;
-  background-color: rgb(253, 197, 197);
+  /* background-color: rgb(253, 197, 197); */
   border-bottom: 1px solid #e6ecf0;
 }
 
 .container {
   display: flex;
   flex-direction: column;
+}
+
+.follow-button {
+  border: solid;
+  border-width: 2px;
+  border-color: rgb(62, 194, 255);
+  border-radius: 15px;
+  padding: 5px 20px 5px 20px;
+  color: rgb(62, 194, 255); 
+  font-weight: bold;
+  font-size: 15px;
+  /* margin-left: 25%; */
+  display: flex;
+  margin-left: 0;
+  margin-right: 40px; 
 }
