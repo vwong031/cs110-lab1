@@ -70,6 +70,7 @@ body {
   width: 290px;
   background-color: rgb(255, 255, 255);
   position:relative;
+  height: 200px;
 }
 
 .tweets {
