@@ -61,7 +61,7 @@ body {
   cursor: pointer;
 }
 
-#nav {
+.nav {
   display: flex;
   /* justify-content: space-between; */
 }
@@ -89,34 +89,54 @@ body {
 .profile-name-spacing {
   display: flex;
   margin-bottom: 10px;
+  margin-top: 15px;
 }
 
 .profile-name {
   font-weight: bold;
   margin-right: 5px;
+  margin-left: 5px;
+}
+
+.tweet-spacing {
+  margin-bottom: 15px;
+  margin-left: 5px;
 }
 
 .username {
-  color: rgb(88, 88, 88);
+  color: rgb(111, 111, 111);
   font-size: 15px;
 }
 
-/*.profile-img-container {
-  position: absolute;
-  z-index: 2;
-} 
-
 .banner {
-  position: absolute;
+  /* z-index: 50; */
+  /* position: relative; */
+}
+
+.banner img {
   width: 100%;
-  top: 0px;
-  z-index: 1; 
-}*/
+  height: auto;
+}
+
+.profile-img-container {
+  z-index: 2;
+  position: absolute;
+}
 
 .profile-img {
   border-radius: 50%;
   width: 48px;
   height: 48px;
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+.who-to-follow-profile-img {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  margin-left: 10px;
+  margin-top: 20px;
 }
 
 .profile-info-username {
@@ -146,8 +166,42 @@ body {
 }
 
 .who-to-follow {
+  display: flex;
+  flex-direction: column;
   width: 290px;
-  background-color: bisque;
+  background-color: rgb(255, 255, 255);
+  height: 225px;
+}
+
+.suggestions {
+  font-size: 18px;
+  margin-left: 8px;
+}
+
+.suggested-profiles {
+  display: flex;
+  /* background-color: rgb(253, 197, 197); */
+  border-bottom: 1px solid #e6ecf0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.follow-button {
+  border: solid;
+  border-width: 2px;
+  border-color: rgb(62, 194, 255);
+  border-radius: 15px;
+  padding: 5px 20px 5px 20px;
+  color: rgb(62, 194, 255); 
+  font-weight: bold;
+  font-size: 15px;
+  /* margin-left: 25%; */
+  display: flex;
+  margin-left: 0;
+  margin-right: 40px; 
 }
 
 .who-to-follow-block {
