@@ -9,6 +9,10 @@ body {
   .who-to-follow {
     display: none;
   }
+
+  .sections.nav-link:first-child {
+    margin-left: 50px; 
+  }
 }
 
 /* TODO: Create CSS for your Twitter Mockup */
@@ -16,6 +20,10 @@ body {
   background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: space-between;
+  align-items: center; 
+
+  height: 56px;
+
 }
 
 .main {
@@ -23,7 +31,7 @@ body {
   justify-content: center;
   width: 90%;
   max-width: 1190px;
-  margin: 56px auto;
+  margin: 10px auto;
 }
 
 .sections {
@@ -31,8 +39,12 @@ body {
   text-decoration: none;
   font-weight: bold;
   font-size: 15px;
-  margin-right: 20%;
-  margin-left: 15%;
+  margin-right: 20px; 
+  margin-left: 20px;
+}
+
+.sections.nav-link:first-child {
+  margin-left: 100px; 
 }
 
 .sections:hover {
@@ -42,6 +54,8 @@ body {
 
 #twitter-logo {
   max-width: 30px;
+  max-height: 30px;
+  margin-right: 275px;
 }
 
 #tweet-button {
@@ -54,7 +68,8 @@ body {
   color: rgb(255, 255, 255);
   font-weight: bold;
   font-size: 15px;
-  margin-left: 25%;
+  margin-left: 15%;
+  margin-right: 25px;
 }
 
 #tweet-button:hover {
@@ -63,6 +78,15 @@ body {
 
 .nav {
   display: flex;
+  align-items: center;
+  padding-left: 50px;
+  /* justify-content: space-between; */
+}
+
+.space {
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
   /* justify-content: space-between; */
 }
 
@@ -71,6 +95,7 @@ body {
   background-color: rgb(255, 255, 255);
   position:relative;
   height: 200px;
+  margin-right: 10px;
 }
 
 .tweets {
@@ -276,6 +301,7 @@ body {
   width: 290px;
   background-color: rgb(255, 255, 255);
   height: 225px;
+  margin-left: 10px;
 }
 
 .who-to-follow-block {
