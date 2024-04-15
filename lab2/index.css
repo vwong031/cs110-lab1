@@ -5,6 +5,12 @@ body {
   background-color: #e6ecf0;
 }
 
+@media (max-width: 1200px) {
+  .who-to-follow {
+    display: none;
+  }
+}
+
 /* TODO: Create CSS for your Twitter Mockup */
 #header {
   background-color: rgb(255, 255, 255);
@@ -14,7 +20,7 @@ body {
 
 .main {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 90%;
   max-width: 1190px;
   margin: 56px auto;
@@ -63,6 +69,7 @@ body {
 .profile {
   width: 290px;
   background-color: rgb(141, 112, 220);
+  position:relative;
 }
 
 .tweets {
@@ -94,10 +101,17 @@ body {
   font-size: 15px;
 }
 
-/* .profile-img-container {
-  z-index: 90;
+/*.profile-img-container {
   position: absolute;
-} */
+  z-index: 2;
+} 
+
+.banner {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  z-index: 1; 
+}*/
 
 .profile-img {
   border-radius: 50%;
@@ -183,7 +197,7 @@ body {
   font-size: 15px;
   font-weight: bold;
   border-radius: 15px;
-  padding: 5px;
+  padding: 5px 20px 5px 20px;
   width: 60px;
   height: 20px;
   text-align: center;
@@ -213,7 +227,7 @@ body {
 
 .label {
   color: black;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .number {
