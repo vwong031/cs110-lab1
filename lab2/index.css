@@ -9,10 +9,6 @@ body {
   .who-to-follow {
     display: none;
   }
-
-  .sections.nav-link:first-child {
-    margin-left: 50px; 
-  }
 }
 
 /* TODO: Create CSS for your Twitter Mockup */
@@ -21,7 +17,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center; 
-
+  width: 100%;
   height: 56px;
 
 }
@@ -68,7 +64,6 @@ body {
   color: rgb(255, 255, 255);
   font-weight: bold;
   font-size: 15px;
-  margin-left: 15%;
   margin-right: 25px;
 }
 
