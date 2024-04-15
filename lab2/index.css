@@ -91,6 +91,12 @@ body {
   margin-left: 5px;
 }
 
+.who-to-follow-name {
+  font-weight: bold;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
 .tweet-spacing {
   margin-bottom: 15px;
   margin-left: 5px;
@@ -116,6 +122,32 @@ body {
   position: absolute;
 }
 
+.profile-info-username {
+  color: #657786;
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+.profile-info-name {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.profile-info span {
+  display: block;
+}
+
+.profile-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.profile-info > div {
+  text-align: center;
+  width: 100px; 
+}
+
 .profile-img {
   border-radius: 50%;
   width: 48px;
@@ -124,12 +156,68 @@ body {
   margin-top: 15px;
 }
 
-.who-to-follow-profile-img {
+.tweet-follow-following {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.tweet-follow-following > div {
+  text-align: center;
+  width: 100px; 
+}
+
+.tweet-follow-following span {
+  display: block;
+}
+
+.label {
+  color: black;
+  margin-bottom: 10px;
+}
+
+.number {
+  color: #1da0f2;; 
+}
+
+.tweet-follow-following .tweet-count span,
+.tweet-follow-following .following-count span,
+.tweet-follow-following .followers-count span {
+  text-align: left; 
+  margin-left: 0; 
+  font-weight: bold;
+}
+
+/* .who-to-follow-profile-img {
   border-radius: 50%;
   width: 48px;
   height: 48px;
   margin-left: 10px;
   margin-top: 20px;
+} */
+
+.who-to-follow-pfp {
+  width: 49px;
+  height: 49px;
+  border-radius: 50px;
+  margin-right: 10px;
+}
+
+.who-to-follow-user {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.who-to-follow-username {
+  color: #657786;
+  font-size: 15px;
+  /* margin-left: 3px; */
+}
+
+.who-to-follow-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .who-to-follow {
@@ -138,6 +226,38 @@ body {
   width: 290px;
   background-color: rgb(255, 255, 255);
   height: 225px;
+}
+
+.who-to-follow-block {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e6ecf0;
+}
+
+.who-to-follow-head-block {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.who-to-follow-button {
+  border: 1px solid #4AB3F4;
+  color: #1da0f2;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 5px 20px 5px 20px;
+  width: 60px;
+  height: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.who-to-follow-heading {
+  font-size: 19px;
+  font-weight: bold;
+  color: #14171a;
 }
 
 .suggestions {
@@ -157,7 +277,7 @@ body {
 }
 
 .follow-button {
-  border: solid;
+  /* border: solid;
   border-width: 2px;
   border-color: rgb(62, 194, 255);
   border-radius: 15px;
@@ -165,8 +285,19 @@ body {
   color: rgb(62, 194, 255); 
   font-weight: bold;
   font-size: 15px;
-  /* margin-left: 25%; */
+  margin-left: 25%; 
   display: flex;
   margin-left: 0;
-  margin-right: 40px; 
+  margin-right: 40px;  */
+
+  border: 1px solid #4AB3F4;
+  color: #1da0f2;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 5px 20px 5px 20px;
+  width: 60px;
+  height: 20px;
+  text-align: center;
+  margin-top: 10px;
 }
