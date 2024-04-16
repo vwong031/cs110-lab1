@@ -5,22 +5,19 @@ body {
   background-color: #e6ecf0;
 }
 
-@media (max-width: 1200px) {
-  .who-to-follow {
-    display: none;
-  }
+/* TODO: Create CSS for your Twitter Mockup */
+.header {
+  background-color: rgb(255, 255, 255);
 
 }
 
-/* TODO: Create CSS for your Twitter Mockup */
-#header {
-  background-color: rgb(255, 255, 255);
+.header-spacing {
   display: flex;
   justify-content: space-between;
   align-items: center; 
-  width: 100%;
+  max-width: 100%;
   height: 56px;
-
+  padding: 0 10px;
 }
 
 .main {
@@ -65,8 +62,14 @@ body {
   color: rgb(255, 255, 255);
   font-weight: bold;
   font-size: 15px;
-  margin-right: 25px;
+  flex-shrink: 0;
+  /* margin-left: auto; */
+  /* margin-right: 25px; */
 }
+
+/* .tweet-button-spacing {
+  width: 8%;
+} */
 
 #tweet-button:hover {
   cursor: pointer;
@@ -90,7 +93,7 @@ body {
   width: 290px;
   background-color: rgb(255, 255, 255);
   position:relative;
-  height: 200px;
+  height: 220px;
   margin-right: 10px;
 }
 
@@ -139,15 +142,18 @@ body {
 .banner {
   /* z-index: 50; */
   position: relative; 
+  padding: 20px;
+  background-color: black;
 }
 
 .banner img {
   width: 100%;
+  /* padding: 10px 10px 10px 10px; */
 }
 
 .profile-img-container {
   position: absolute;
-  top: 40px; /* Adjust as needed */
+  top: 70px; /* Adjust as needed */
   left: 5%;
   z-index: 2;
 }
@@ -184,6 +190,8 @@ body {
   border-radius: 50%;
   width: 48px;
   height: 48px;
+  border: solid;
+  border-color: white;
   /*margin-left: 10px;
   margin-top: 15px;
   */
@@ -354,19 +362,6 @@ body {
 }
 
 .follow-button {
-  /* border: solid;
-  border-width: 2px;
-  border-color: rgb(62, 194, 255);
-  border-radius: 15px;
-  padding: 5px 20px 5px 20px;
-  color: rgb(62, 194, 255); 
-  font-weight: bold;
-  font-size: 15px;
-  margin-left: 25%; 
-  display: flex;
-  margin-left: 0;
-  margin-right: 40px;  */
-
   border: 1px solid #4AB3F4;
   color: #1da0f2;
   font-size: 15px;
@@ -455,7 +450,7 @@ body {
 }
 
 .label {
-  color: black;
+  color: #657786;
   margin-bottom: 10px;
 }
 
@@ -469,4 +464,11 @@ body {
   text-align: left; 
   margin-left: 0; 
   font-weight: bold;
+}
+
+@media (max-width: 1300px) {
+  .who-to-follow {
+    display: none;
+  }
+
 }
