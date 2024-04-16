@@ -1,3 +1,5 @@
+/*Jenny Quan and Valerie Wong*/
+
 /* Feel free to edit CSS of body if you'd like. We provide you the light gray background color and font family in the body styling */
 body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -6,18 +8,26 @@ body {
 }
 
 /* TODO: Create CSS for your Twitter Mockup */
-#header {
+.header {
   background-color: rgb(255, 255, 255);
+
+}
+
+.header-spacing {
   display: flex;
   justify-content: space-between;
+  align-items: center; 
+  max-width: 100%;
+  height: 56px;
+  padding: 0 10px;
 }
 
 .main {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 90%;
   max-width: 1190px;
-  margin: 56px auto;
+  margin: 10px auto;
 }
 
 .sections {
@@ -25,8 +35,12 @@ body {
   text-decoration: none;
   font-weight: bold;
   font-size: 15px;
-  margin-right: 20%;
-  margin-left: 15%;
+  margin-right: 20px; 
+  margin-left: 20px;
+}
+
+.sections.nav-link:first-child {
+  margin-left: 100px; 
 }
 
 .sections:hover {
@@ -36,6 +50,8 @@ body {
 
 #twitter-logo {
   max-width: 30px;
+  max-height: 30px;
+  margin-right: 540px;
 }
 
 #tweet-button {
@@ -43,12 +59,14 @@ body {
   border-color: rgb(62, 194, 255);
   border-width: 3px;
   border: solid;
-  border-radius: 15px;
-  padding: 5px 20px 5px 20px;
+  border-radius: 18px;
+  padding: 5px 15px 5px 15px;
   color: rgb(255, 255, 255);
   font-weight: bold;
   font-size: 15px;
-  margin-left: 25%;
+  flex-shrink: 0;
+  /* margin-left: auto; */
+   margin-right: 25px; 
 }
 
 #tweet-button:hover {
@@ -57,12 +75,24 @@ body {
 
 .nav {
   display: flex;
+  align-items: center;
+  padding-left: 50px;
+  /* justify-content: space-between; */
+}
+
+.space {
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
   /* justify-content: space-between; */
 }
 
 .profile {
   width: 290px;
-  /* background-color: rgb(141, 112, 220); */
+  background-color: rgb(255, 255, 255);
+  position:relative;
+  height: 220px;
+  margin-right: 10px;
 }
 
 .tweets {
@@ -109,17 +139,24 @@ body {
 
 .banner {
   /* z-index: 50; */
-  /* position: relative; */
+  position: relative; 
+  padding-top: 25px;
+  padding-bottom: 20px;
+  padding-right: 40px;
+  padding-left: 40px;
+  background-color: black;
 }
 
 .banner img {
   width: 100%;
-  height: auto;
+  /* padding: 10px 10px 10px 10px; */
 }
 
 .profile-img-container {
-  z-index: 2;
   position: absolute;
+  top: 70px; /* Adjust as needed */
+  left: 5%;
+  z-index: 2;
 }
 
 .profile-info-username {
@@ -133,14 +170,16 @@ body {
   font-weight: bold;
 }
 
-.profile-info span {
+/*.profile-info span {
   display: block;
-}
+  text-align: center;
+}*/
 
 .profile-info {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  text-align: center;
 }
 
 .profile-info > div {
@@ -150,16 +189,40 @@ body {
 
 .profile-img {
   border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border: solid;
+  border-color: white;
+  /*margin-left: 10px;
+  margin-top: 15px;
+  */
+}
+
+.tweet-profile-img {
+  border-radius: 50%;
   width: 48px;
   height: 48px;
+  margin-top: 12px;
   margin-left: 10px;
-  margin-top: 15px;
+  margin-right: 5px;
+}
+
+.name-username {
+  display: block;
+  margin-left: 65px;
+  margin-top: -40px;
+}
+
+.profile-info-name {
+  text-decoration: underline;
 }
 
 .tweet-follow-following {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-left: 10px;
+  margin-top: 75px;
 }
 
 .tweet-follow-following > div {
@@ -220,12 +283,39 @@ body {
   width: 100%;
 }
 
+.profile-info-username {
+  color: #657786;
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+.profile-info-name {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.profile-info span {
+  display: block;
+}
+
+.profile-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.profile-info > div {
+  text-align: center;
+  width: 100px; 
+}
+
 .who-to-follow {
   display: flex;
   flex-direction: column;
   width: 290px;
   background-color: rgb(255, 255, 255);
   height: 225px;
+  margin-left: 10px;
 }
 
 .who-to-follow-block {
@@ -282,19 +372,6 @@ body {
 }
 
 .follow-button {
-  /* border: solid;
-  border-width: 2px;
-  border-color: rgb(62, 194, 255);
-  border-radius: 15px;
-  padding: 5px 20px 5px 20px;
-  color: rgb(62, 194, 255); 
-  font-weight: bold;
-  font-size: 15px;
-  margin-left: 25%; 
-  display: flex;
-  margin-left: 0;
-  margin-right: 40px;  */
-
   border: 1px solid #4AB3F4;
   color: #1da0f2;
   font-size: 15px;
@@ -305,4 +382,121 @@ body {
   height: 20px;
   text-align: center;
   margin-top: 10px;
+}
+
+.who-to-follow-block {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e6ecf0;
+}
+
+.who-to-follow-block:last-child {
+  border-bottom: none;
+}
+
+.who-to-follow-pfp {
+  width: 49px;
+  height: 49px;
+  border-radius: 50px;
+  margin-right: 10px;
+}
+
+.who-to-follow-username {
+  color: #657786;
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+.who-to-follow-user {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.who-to-follow-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.who-to-follow-heading {
+  font-size: 19px;
+  font-weight: bold;
+  color: #14171a;
+}
+
+.who-to-follow-button {
+  border: 1px solid #4AB3F4;
+  color: #1da0f2;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 5px 20px 5px 20px;
+  width: 60px;
+  height: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.who-to-follow-button:hover {
+  background: rgba(29, 161, 242, 0.1);
+  cursor: pointer;
+}
+
+
+.tweet-follow-following {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.tweet-follow-following > div {
+  text-align: center;
+  width: 100px; 
+}
+
+.tweet-follow-following span {
+  display: block;
+}
+
+.label {
+  color: #657786;
+  margin-bottom: 10px;
+}
+
+.number {
+  color: #1da0f2;; 
+}
+
+.tweet-follow-following .tweet-count span,
+.tweet-follow-following .following-count span,
+.tweet-follow-following .followers-count span {
+  text-align: left; 
+  margin-left: 0; 
+  font-weight: bold;
+}
+
+@media (max-width: 1200px) {
+  .who-to-follow {
+    display: none;
+  }
+
+  #tweet-button {
+    position: fixed; 
+    /* bottom: 705px;  */
+    top: 10px;
+    right: 20px; 
+    margin-right: 0; 
+  }
+
+  #twitter-logo {
+    position: fixed; 
+    top: 20px; 
+    left: 600px; 
+    margin-right: 0; 
+  }
+
+  .sections.nav-link:first-child {
+    margin-left: 125px; 
+  }
 }
