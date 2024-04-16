@@ -64,7 +64,7 @@ body {
   font-size: 15px;
   flex-shrink: 0;
   /* margin-left: auto; */
-  /* margin-right: 25px; */
+   margin-right: 25px; 
 }
 
 /* .tweet-button-spacing {
@@ -211,7 +211,7 @@ body {
 
 .name-username {
   display: block;
-  margin-left: 35px;
+  margin-left: 65px;
   margin-top: -40px;
 }
 
@@ -478,9 +478,26 @@ body {
   font-weight: bold;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1200px) {
   .who-to-follow {
     display: none;
   }
 
+  #tweet-button {
+    position: fixed; 
+    bottom: 705px; 
+    right: 20px; 
+    margin-right: 0; 
+  }
+
+  #twitter-logo {
+    position: fixed; 
+    top: 20px; 
+    left: 600px; 
+    margin-right: 0; 
+  }
+
+  .sections.nav-link:first-child {
+    margin-left: 30px; 
+  }
 }
