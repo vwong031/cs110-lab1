@@ -69,10 +69,6 @@ body {
    margin-right: 25px; 
 }
 
-/* .tweet-button-spacing {
-  width: 8%;
-} */
-
 #tweet-button:hover {
   cursor: pointer;
 }
