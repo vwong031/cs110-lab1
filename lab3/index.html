@@ -14,24 +14,24 @@
 
     <div class="game_board">
       <div class='row'>
-        <div class="one" onkeypress="Play(event)"><span class="xo"></span></div>
-        <div class="two"><span class="xo"></span></div>
-        <div class="three"><span class="xo"></span></div>
+        <div class="one" onclick="Play('one')"><span class="xo"></span></div>
+        <div class="two" onclick="Play('two')"><span class="xo"></span></div>
+        <div class="three" onclick="Play('three')"><span class="xo"></span></div>
       </div>
       <div class='row'>
-        <div class="four"><span class="xo"></span></div>
-        <div class="five"><span class="xo"></span></div>
-        <div class="six"><span class="xo"></span></div>
+        <div class="four" onclick="Play('four')"><span class="xo"></span></div>
+        <div class="five" onclick="Play('five')"><span class="xo"></span></div>
+        <div class="six" onclick="Play('six')"><span class="xo"></span></div>
       </div>
       <div class='row'>
-        <div class="seven"><span class="xo"></span></div>
-        <div class="eight"><span class="xo"></span></div>
-        <div class="nine"><span class="xo"></span></div>
+        <div class="seven" onclick="Play('seven')"><span class="xo"></span></div>
+        <div class="eight" onclick="Play('eight')"><span class="xo"></span></div>
+        <div class="nine" onclick="Play('nine')"><span class="xo"></span></div>
       </div>
     </div>
 
     <button class="new_game">New Game</button>
-    <button class="reset">Reset</button>
+    <button class="reset" onclick="Reset()">Reset</button>
   </body>
 
 
