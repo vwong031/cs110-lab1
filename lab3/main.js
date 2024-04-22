@@ -58,7 +58,7 @@ function Reset() {
   for (var i = 0; i < playerChoice.length; ++i) {
     playerChoice[i].innerHTML = '';
   }
-}
+} 
 
 function newGame() {
   Reset();
