@@ -5,12 +5,6 @@ var yScore = 0;
 var xMoves = [];
 var oMoves = [];
 
-/*
-TODO: 
-- If you click on a box that has an X or O in it, you get an alert that says
-  "out of moves", when it should probably say something else
-*/
-
 function Play(id) {
   var playerChoice = document.querySelector("." + id + " .xo");
 
