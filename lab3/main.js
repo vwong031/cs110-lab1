@@ -8,11 +8,6 @@ var oMoves = [];
 
 function Play(id) {
   var playerChoice = document.querySelector("." + id + " .xo");
-  
-  if (openSpots <= 0)
-  {
-    alert("Out of moves")
-  }
 
   // Check if the box already contains an X or O
   if (playerChoice.textContent === '') {
@@ -44,7 +39,7 @@ function Play(id) {
       }
     }
   
-    if (openSpots == 0)
+    if (openSpots <= 0)
     {
       alert("Out of moves")
     }
@@ -58,6 +53,11 @@ function Reset() {
   for (var i = 0; i < playerChoice.length; ++i) {
     playerChoice[i].innerHTML = '';
   }
+
+  var boxes = document.querySelectorAll('.game_board > .row > div');
+  boxes.forEach(function(box) {
+    box.style.backgroundColor = "pink"
+  });
 } 
 
 function newGame() {
