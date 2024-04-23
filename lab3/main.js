@@ -1,11 +1,9 @@
-function initializeGame() {
   currentPlayer = "X";
   openSpots = 9;
   xScore = 0;
   oScore = 0;
   xMoves = [];
   oMoves = [];
-}
 
 function winCheck() {
   var winCombos = [
@@ -38,7 +36,7 @@ function Play(id) {
   if (playerChoice.textContent !== '') {
     return;
   }
-  
+
   playerChoice.innerHTML = currentPlayer;
 
   currentPlayer = currentPlayer === "X" ? "O" : "X";
@@ -60,7 +58,9 @@ function Play(id) {
   var result = winCheck();
   if (result === 'X') {
     xScore++;
-    document.querySelector(".display-score-X").textContext = xScore;
+    console.log("x wins");
+    console.log("xScore: ", xScore);
+    document.querySelector(".display-score-X").textContent = xScore;
     alert("Player X wins!");
   }
   else if (result === 'O') {
@@ -104,10 +104,6 @@ function newGame() {
   xMoves = [];
   oMoves = [];
   document.querySelector(".display_player").textContent = "Player X"; 
-  document.querySelector(".display-score-X").textContent = xScore;
-  document.querySelector(".display-score-O").textContent = oScore;
+  document.querySelector(".display-score-X").textContent = '';
+  document.querySelector(".display-score-O").textContent = '';
 }
-
-window.addEventListener("load", function() {
-  initializeGame();
-});
