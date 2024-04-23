@@ -4,6 +4,7 @@
   oScore = 0;
   xMoves = [];
   oMoves = [];
+  gameOver = false;
 
 function winCheck() {
   var winCombos = [
@@ -31,6 +32,11 @@ function winCheck() {
 }
 
 function Play(id) {
+  if (gameOver) {
+    alert("Game Over! Reset or start a New Game.");
+    return;
+  }
+
   var playerChoice = document.querySelector("." + id + " .xo");
 
   if (playerChoice.textContent !== '') {
@@ -45,7 +51,7 @@ function Play(id) {
 
   var currentPlayerName = currentPlayer === "X" ? "Player X" : "Player O";
   document.querySelector(".display_player").textContent = currentPlayerName;
-  openSpots--;
+  --openSpots;
 
   var pos = id;
   if (playerChoice.textContent === "X") {
@@ -58,17 +64,20 @@ function Play(id) {
   var result = winCheck();
   if (result === 'X') {
     xScore++;
-    console.log("x wins");
-    console.log("xScore: ", xScore);
+    // console.log("x wins");
+    // console.log("xScore: ", xScore);
+    gameOver = true;
     document.querySelector(".display-score-X").textContent = xScore;
     alert("Player X wins!");
   }
   else if (result === 'O') {
     oScore++;
+    gameOver = true;
     document.querySelector(".display-score-O").textContent = oScore;
     alert("Player O wins!");
   }
   else if (result === 'tie') {
+    gameOver = true;
     alert("It's a tie!");
     // openSpots = 0;
   }
@@ -91,6 +100,7 @@ function Reset() {
   openSpots = 9;
   xMoves = [];
   oMoves = [];
+  gameOver = false;
   // xScore = 0;
   // oScore = 0;
   document.querySelector(".display_player").textContent = "Player X"; 
