@@ -90,8 +90,8 @@ function Reset() {
   openSpots = 9;
   xMoves = [];
   oMoves = [];
-  xScore = 0;
-  oScore = 0;
+  // xScore = 0;
+  // oScore = 0;
   document.querySelector(".display_player").textContent = "Player X"; 
 } 
 
@@ -99,8 +99,8 @@ function newGame() {
   Reset();
   // currentPlayer = "X"; 
   // openSpots = 9; 
-  // xScore = 0;
-  // oScore = 0;
+  xScore = 0;
+  oScore = 0;
   // xMoves = [];
   // oMoves = [];
   // document.querySelector(".display_player").textContent = "Player X"; 
