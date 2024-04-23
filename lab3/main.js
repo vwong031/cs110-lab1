@@ -70,6 +70,7 @@ function Play(id) {
   }
   else if (result === 'tie') {
     alert("It's a tie!");
+    // openSpots = 0;
   }
 }
 
