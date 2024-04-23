@@ -96,6 +96,9 @@ function Reset() {
     box.style.backgroundColor = "pink"
   });
 
+  xScore = 0;
+  oScore = 0;
+
   currentPlayer = "X"; 
   openSpots = 9;
   xMoves = [];
@@ -103,18 +106,31 @@ function Reset() {
   gameOver = false;
   // xScore = 0;
   // oScore = 0;
+  document.querySelector(".display-score-X").textContent = '';
+  document.querySelector(".display-score-O").textContent = '';
   document.querySelector(".display_player").textContent = "Player X"; 
 } 
 
 function newGame() {
-  Reset();
-  // currentPlayer = "X"; 
-  // openSpots = 9; 
-  xScore = 0;
-  oScore = 0;
-  // xMoves = [];
-  // oMoves = [];
-  // document.querySelector(".display_player").textContent = "Player X"; 
-  document.querySelector(".display-score-X").textContent = '';
-  document.querySelector(".display-score-O").textContent = '';
+  var playerChoice = document.getElementsByClassName("xo");
+
+  for (var i = 0; i < playerChoice.length; ++i) {
+    playerChoice[i].innerHTML = '';
+  }
+
+  var boxes = document.querySelectorAll('.game_board > .row > div');
+  boxes.forEach(function(box) {
+    box.style.backgroundColor = "pink"
+  });
+
+  currentPlayer = "X"; 
+  openSpots = 9; 
+  // xScore = 0;
+  // oScore = 0;
+  xMoves = [];
+  oMoves = [];
+  gameOver = false;
+  document.querySelector(".display_player").textContent = "Player X"; 
+  // document.querySelector(".display-score-X").textContent = '';
+  // document.querySelector(".display-score-O").textContent = '';
 }
