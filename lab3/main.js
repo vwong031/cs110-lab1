@@ -97,13 +97,13 @@ function Reset() {
 
 function newGame() {
   Reset();
-  currentPlayer = "X"; 
-  openSpots = 9; 
+  // currentPlayer = "X"; 
+  // openSpots = 9; 
   // xScore = 0;
   // oScore = 0;
-  xMoves = [];
-  oMoves = [];
-  document.querySelector(".display_player").textContent = "Player X"; 
+  // xMoves = [];
+  // oMoves = [];
+  // document.querySelector(".display_player").textContent = "Player X"; 
   document.querySelector(".display-score-X").textContent = '';
   document.querySelector(".display-score-O").textContent = '';
 }
