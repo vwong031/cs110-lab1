@@ -1,47 +1,75 @@
-var currentPlayer = "X";
-var openSpots = 9;
-var xScore = 0;
-var yScore = 0;
-var xMoves = [];
-var oMoves = [];
+function initializeGame() {
+  currentPlayer = "X";
+  openSpots = 9;
+  xScore = 0;
+  oScore = 0;
+  xMoves = [];
+  oMoves = [];
+}
+
+function winCheck() {
+  var winCombos = [
+    ['one', 'four', 'seven'], ['two', 'five', 'eight'], ['three', 'six', 'nine'],
+    ['one', 'two', 'three'], ['four', 'five', 'six'], ['seven', 'eight', 'nine'],
+    ['one', 'five', 'nine'], ['seven', 'five', 'three']
+  ];
+
+  for (var i = 0; i < winCombos.length; ++i) {
+    var combo = winCombos[i];
+
+    if (combo.every(pos => xMoves.includes(pos))) {
+      return 'X';
+    }
+    else if (combo.every(pos => oMoves.includes(pos))) {
+      return 'O';
+    }
+  }
+
+  if (openSpots <= 0) {
+    return 'tie';
+  }
+
+  return null;
+}
 
 function Play(id) {
   var playerChoice = document.querySelector("." + id + " .xo");
 
-  // Check if the box already contains an X or O
-  if (playerChoice.textContent === '') {
-    playerChoice.innerHTML = currentPlayer;
-
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
-
-    document.querySelector("." + id).style.backgroundColor = "lightcoral";
+  if (playerChoice.textContent !== '') {
+    return;
+  }
   
-    var currentPlayerName = currentPlayer === "X" ? "Player X" : "Player O";
-    document.querySelector(".display_player").textContent = currentPlayerName;
-    openSpots--;
+  playerChoice.innerHTML = currentPlayer;
 
-    className = row; 
-    if (currentPlayer === "X") {
-      xMoves.push(className);
-    } else {
-      oMoves.push(className);
-    }
-  
-    if (winCheck()) {
-      if (currentPlayer == "X")
-      {
-        xScore++;
-        document.querySelector(".display-score-X").textContent = xScore;
-      } else {
-        yScore++;
-        document.querySelector(".display-score-Y").textContent = yScore;
-      }
-    }
-  
-    if (openSpots <= 0)
-    {
-      alert("Out of moves")
-    }
+  currentPlayer = currentPlayer === "X" ? "O" : "X";
+
+  document.querySelector("." + id).style.backgroundColor = "lightcoral";
+
+  var currentPlayerName = currentPlayer === "X" ? "Player X" : "Player O";
+  document.querySelector(".display_player").textContent = currentPlayerName;
+  openSpots--;
+
+  var pos = id;
+  if (playerChoice.textContent === "X") {
+    xMoves.push(pos);
+  }
+  else {
+    oMoves.push(pos);
+  }
+
+  var result = winCheck();
+  if (result === 'X') {
+    xScore++;
+    document.querySelector(".display-score-X").textContext = xScore;
+    alert("Player X wins!");
+  }
+  else if (result === 'O') {
+    oScore++;
+    document.querySelector(".display-score-O").textContent = oScore;
+    alert("Player O wins!");
+  }
+  else if (result === 'tie') {
+    alert("It's a tie!");
   }
 }
 
@@ -57,13 +85,29 @@ function Reset() {
   boxes.forEach(function(box) {
     box.style.backgroundColor = "pink"
   });
+
+  currentPlayer = "X"; 
+  openSpots = 9;
+  xMoves = [];
+  oMoves = [];
+  xScore = 0;
+  oScore = 0;
+  document.querySelector(".display_player").textContent = "Player X"; 
 } 
 
 function newGame() {
   Reset();
   currentPlayer = "X"; 
   openSpots = 9; 
-  xScore = 0;
-  yScore = 0;
+  // xScore = 0;
+  // oScore = 0;
+  xMoves = [];
+  oMoves = [];
   document.querySelector(".display_player").textContent = "Player X"; 
+  document.querySelector(".display-score-X").textContent = xScore;
+  document.querySelector(".display-score-O").textContent = oScore;
 }
+
+window.addEventListener("load", function() {
+  initializeGame();
+});
