@@ -33,7 +33,56 @@ function winCheck() {
 }
 
 function computerPlay() {
-  
+  if (gameOver || openSpots <= 0) {
+    alert("Game Over! Reset or start a New Game.");
+    return;
+  }
+
+  var i = Math.floor(Math.random() * availableMoves.length);
+  var computerMove = availableMoves[i];
+  availableMoves = availableMoves.filter(cell => cell !== computerMove);
+
+  var compChoice = document.querySelector("." + computerMove + " .xo");
+  compChoice.innerHTML = currentPlayer;
+  document.querySelector("." + computerMove).style.backgroundColor = "lightcoral";
+
+  currentPlayer = currentPlayer === "X" ? "O" : "X";
+
+  var currentPlayerName = currentPlayer === "X" ? "Player X" : "Player O";
+  document.querySelector(".display_player").textContent = currentPlayerName;
+  --openSpots;
+
+  var pos = id;
+  if (compChoice.textContent === "X") {
+    xMoves.push(pos);
+  }
+  else {
+    oMoves.push(pos);
+  }
+
+  // availableMoves = availableMoves.filter(cell => cell !== id);
+
+  var result = winCheck();
+  if (result === 'X') {
+    xScore++;
+    // console.log("x wins");
+    // console.log("xScore: ", xScore);
+    gameOver = true;
+    document.querySelector(".display-score-X").textContent = xScore;
+    alert("Player X wins!");
+  }
+  else if (result === 'O') {
+    oScore++;
+    gameOver = true;
+    document.querySelector(".display-score-O").textContent = oScore;
+    alert("Player O wins!");
+  }
+  else if (result === 'tie') {
+    gameOver = true;
+    alert("It's a tie!");
+    // openSpots = 0;
+  }
+  // Play(computerMove)
 }
 
 function Play(id) {
@@ -47,6 +96,8 @@ function Play(id) {
   if (playerChoice.textContent !== '') {
     return;
   }
+
+  availableMoves = availableMoves.filter(cell => cell !== id);
 
   playerChoice.innerHTML = currentPlayer;
 
@@ -66,7 +117,7 @@ function Play(id) {
     oMoves.push(pos);
   }
 
-  availableMoves = availableMoves.filter(cell => cell !== id);
+  // availableMoves = availableMoves.filter(cell => cell !== id);
 
   var result = winCheck();
   if (result === 'X') {
@@ -89,7 +140,7 @@ function Play(id) {
     // openSpots = 0;
   }
 
-  // computerPlay();
+  setTimeout(computerPlay, 500);
 }
 
 function Reset() {
