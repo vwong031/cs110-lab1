@@ -52,7 +52,7 @@ function computerPlay() {
   document.querySelector(".display_player").textContent = currentPlayerName;
   --openSpots;
 
-  var pos = id;
+  var pos = computerMove;
   if (compChoice.textContent === "X") {
     xMoves.push(pos);
   }
