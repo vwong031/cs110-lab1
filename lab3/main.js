@@ -162,7 +162,7 @@ function Reset() {
   openSpots = 9;
   xMoves = [];
   oMoves = [];
-  allMoves = [];
+  availableMoves =['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
   gameOver = false;
   // xScore = 0;
   // oScore = 0;
@@ -189,7 +189,7 @@ function newGame() {
   // oScore = 0;
   xMoves = [];
   oMoves = [];
-  allMoves = [];
+  availableMoves =['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
   gameOver = false;
   document.querySelector(".display_player").textContent = "Player X"; 
   // document.querySelector(".display-score-X").textContent = '';
