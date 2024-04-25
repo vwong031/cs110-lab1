@@ -4,6 +4,7 @@
   oScore = 0;
   xMoves = [];
   oMoves = [];
+  availableMoves =['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
   gameOver = false;
 
 function winCheck() {
@@ -29,6 +30,10 @@ function winCheck() {
   }
 
   return null;
+}
+
+function computerPlay() {
+  
 }
 
 function Play(id) {
@@ -61,6 +66,8 @@ function Play(id) {
     oMoves.push(pos);
   }
 
+  availableMoves = availableMoves.filter(cell => cell !== id);
+
   var result = winCheck();
   if (result === 'X') {
     xScore++;
@@ -81,8 +88,9 @@ function Play(id) {
     alert("It's a tie!");
     // openSpots = 0;
   }
-}
 
+  // computerPlay();
+}
 
 function Reset() {
   var playerChoice = document.getElementsByClassName("xo");
@@ -103,6 +111,7 @@ function Reset() {
   openSpots = 9;
   xMoves = [];
   oMoves = [];
+  allMoves = [];
   gameOver = false;
   // xScore = 0;
   // oScore = 0;
@@ -129,6 +138,7 @@ function newGame() {
   // oScore = 0;
   xMoves = [];
   oMoves = [];
+  allMoves = [];
   gameOver = false;
   document.querySelector(".display_player").textContent = "Player X"; 
   // document.querySelector(".display-score-X").textContent = '';
