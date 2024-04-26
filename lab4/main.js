@@ -1,20 +1,28 @@
 const apiKey = 'Nnkm8qiRhC7bHsMIENGi1gUk9v2UwQT3'; // Replace 'YOUR_API_KEY' with your actual API key
 
-const emailedUrl = 'https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=' + apiKey;
-const sharedUrl = 'https://api.nytimes.com/svc/mostpopular/v2/shared/1/facebook.json?api-key=' + apiKey;
-const viewedUrl = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=' + apiKey;
+const filterForm = document.getElementById('filterForm');
 
-fetchArticles(emailedUrl, 'Most Emailed');
+filterForm.addEventListener('change', function(event) {
+    const filterType = event.target.value;
 
-fetchArticles(sharedUrl, 'Most Shared');
-
-fetchArticles(viewedUrl, 'Most Viewed');
+    
+    let apiUrl;
+    if (filterType === 'emailed') {
+      apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=' + apiKey;
+    } else if (filterType === 'shared') {
+      apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/shared/1/facebook.json?api-key=' + apiKey;
+    } else if (filterType === 'viewed') {
+      apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=' + apiKey;
+    }
+    fetchArticles(apiUrl);
+  });
 
 function fetchArticles(url, title) {
     fetch(url)
       .then(response => response.json())
       .then(data => {
         const articles = data.results;
+
         const container = document.createElement('div');
         container.classList.add('category-container');
 
@@ -34,7 +42,11 @@ function fetchArticles(url, title) {
           articleDiv.appendChild(articleContent);
           container.appendChild(articleDiv);
         });
-    document.querySelector('.news-container').appendChild(container);
+
+        const newsContainer = document.querySelector('.news-container');
+        newsContainer.innerHTML = '';
+
+        newsContainer.appendChild(container);
     })
     .catch(error => {
       console.error('Error fetching articles:', error);
