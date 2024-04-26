@@ -1,0 +1,65 @@
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  margin: 0;
+  background-color: darkgray;
+}
+
+
+.filter {
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  background-color: white;
+  max-width: 250px;
+  height: 255px;
+  border-radius: 10px;
+  margin-top: 75px;
+  margin-left: 15px;
+}
+
+.header-label {
+  font-weight: bold;
+  font-size: large;
+  padding-top: 10px;
+  margin-left: 15px;
+}
+
+.label {
+  font-weight: bold;
+  font-size: medium;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 15px;
+}
+
+.content {
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 15px;
+}
+
+.news-container{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 15px;
+  margin-left: 350px;
+  margin-top: -245px;
+}
+
+.news {
+  height: 90px;
+  background-color: lightgrey;
+  border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+  .filter {
+    margin-top: 15px; 
+    margin-left: 295px;
+  }
+
+  .news-container {
+    margin-top: 95px;
+    margin-right: -550px; 
+  }
+}
