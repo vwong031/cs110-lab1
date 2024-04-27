@@ -85,6 +85,12 @@ function computerPlay() {
   // Play(computerMove)
 }
 
+let aiMode = false; // Variable to track game mode
+
+function toggleAiMode() {
+  aiMode = !aiMode; // Toggle game mode
+}
+
 function Play(id) {
   if (gameOver) {
     alert("Game Over! Reset or start a New Game.");
@@ -140,7 +146,9 @@ function Play(id) {
     // openSpots = 0;
   }
 
-  setTimeout(computerPlay, 500);
+  if (aiMode && currentPlayer === "O") {
+    setTimeout(computerPlay, 500);
+  }
 }
 
 function Reset() {
@@ -164,6 +172,7 @@ function Reset() {
   oMoves = [];
   availableMoves =['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
   gameOver = false;
+  aiMode = false;
   // xScore = 0;
   // oScore = 0;
   document.querySelector(".display-score-X").textContent = '';
