@@ -3,19 +3,58 @@ const apiKey = 'Nnkm8qiRhC7bHsMIENGi1gUk9v2UwQT3'; // Replace 'YOUR_API_KEY' wit
 const filterForm = document.getElementById('filterForm');
 
 filterForm.addEventListener('change', function(event) {
-  const filterType = event.target.value;
+  // const filterType = event.target.value;
+  const timeFrame = document.querySelector('input[name="timeFrame"]:checked').value;
+  const sortBy = document.querySelector('input[name="sortBy"]:checked').value;
+
+  console.log(timeFrame);
+  console.log(sortBy);
 
   let apiUrl;
-  if (filterType === 'emailed') {
-    apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=' + apiKey;
-  } 
-  else if (filterType === 'shared') {
-    apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/shared/1/facebook.json?api-key=' + apiKey;
-  } 
-  else if (filterType === 'viewed') {
-    apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=' + apiKey;
+
+  if (timeFrame === 'day') {
+    if (sortBy === 'viewed') {
+      apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=' + apiKey;
+    }
+    else if (sortBy == 'shared') {
+      apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/shared/1/facebook.json?api-key=' + apiKey;
+    }
+    else if (sortBy === 'emailed') {
+      apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/emailed/1.json?api-key=' + apiKey;
+    }
   }
-  
+  else if (timeFrame === 'week') {
+    if (sortBy === 'viewed') {
+      apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=' + apiKey;
+    }
+    else if (sortBy == 'shared') {
+      apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/shared/7/facebook.json?api-key=' + apiKey;
+    }
+    else if (sortBy === 'emailed') {
+      apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=' + apiKey;
+    }
+  }
+  else if (timeFrame === 'month') {
+    if (sortBy === 'viewed') {
+      apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/30.json?api-key=' + apiKey;
+    }
+    else if (sortBy == 'shared') {
+      apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/shared/30/facebook.json?api-key=' + apiKey;
+    }
+    else if (sortBy === 'emailed') {
+      apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/emailed/30.json?api-key=' + apiKey;
+    }
+  }
+  // if (filterType === 'emailed') {
+  //   apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/emailed/1.json?api-key=' + apiKey;
+  // } 
+  // else if (filterType === 'shared') {
+  //   apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/shared/1/facebook.json?api-key=' + apiKey;
+  // } 
+  // else if (filterType === 'viewed') {
+  //   apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=' + apiKey;
+  // }
+
   fetchArticles(apiUrl);
 });
 
@@ -32,14 +71,18 @@ function fetchArticles(url, title) {
       header.textContent = title;
       container.appendChild(header);
 
-      
+      let counter = 1;
+
       articles.forEach(article => {
         const articleDiv = document.createElement('div');
         articleDiv.classList.add('news');
 
         const articleContent = document.createElement('div');
         articleContent.classList.add('article');
-        articleContent.textContent = article.title; 
+        articleContent.textContent = `${counter}) ${article.title}`;
+        ++counter;
+        // articleContent.textContent = article.title; 
+        articleContent.style.fontWeight = 'bold';
 
         articleDiv.appendChild(articleContent);
         container.appendChild(articleDiv);
