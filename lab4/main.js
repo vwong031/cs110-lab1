@@ -1,5 +1,5 @@
-// const apiKey = 'Nnkm8qiRhC7bHsMIENGi1gUk9v2UwQT3'; // Replace 'YOUR_API_KEY' with your actual API key
-const apiKey = '3zezOvZGq1DAX9EoRH4RGqOz3XW9Gf4Q'
+const apiKey = 'Nnkm8qiRhC7bHsMIENGi1gUk9v2UwQT3'; // Replace 'YOUR_API_KEY' with your actual API key
+// const apiKey = '3zezOvZGq1DAX9EoRH4RGqOz3XW9Gf4Q'
 const filterForm = document.getElementById('filterForm');
 
 filterForm.addEventListener('change', function(event) {
@@ -91,16 +91,17 @@ function fetchArticles(url, title) {
         // TODO: Attempt at getting the image for the article
         const articleImg = document.createElement('img');
         articleImg.classList.add('article-img');
-        // articleImg.style.display = 'flex';
 
         if (article.media && article.media[0] && article.media[0]['media-metadata'] && article.media[0]['media-metadata'][0] && article.media[0]['media-metadata'][0].url) {
           articleImg.src = article.media[0]['media-metadata'][0].url;
         }
 
+        articleImg.style.borderRadius = '10px';
+        // articleImg.style.width = '150px';
+
         const firstSent = article.abstract.split('.')[0];
         const articleFirstSent = document.createElement('div');
         articleFirstSent.classList.add('article-sentence');
-        // articleFirstSent.style.display = 'flex';
         articleFirstSent.textContent = firstSent;
         articleFirstSent.style.fontWeight = 'normal'
 
