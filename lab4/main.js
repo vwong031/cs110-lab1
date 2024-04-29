@@ -84,6 +84,18 @@ function fetchArticles(url, title) {
         // articleContent.textContent = article.title; 
         articleContent.style.fontWeight = 'bold';
 
+        // TODO: Attempt at getting the image for the article
+        // const articleImg = document.createElement('img');
+        // articleImg.classList.add('article-img');
+        // articleImg.src = article.media
+
+        const firstSent = article.abstract.split('.')[0];
+        const articleFirstSent = document.createElement('div');
+        articleFirstSent.classList.add('article-description');
+        articleFirstSent.textContent = firstSent;
+        articleFirstSent.style.fontWeight = 'normal'
+        articleContent.appendChild(articleFirstSent);
+
         articleDiv.appendChild(articleContent);
         container.appendChild(articleDiv);
       });
