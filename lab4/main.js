@@ -1,5 +1,5 @@
-const apiKey = 'Nnkm8qiRhC7bHsMIENGi1gUk9v2UwQT3'; // Replace 'YOUR_API_KEY' with your actual API key
-
+// const apiKey = 'Nnkm8qiRhC7bHsMIENGi1gUk9v2UwQT3'; // Replace 'YOUR_API_KEY' with your actual API key
+const apiKey = '3zezOvZGq1DAX9EoRH4RGqOz3XW9Gf4Q'
 const filterForm = document.getElementById('filterForm');
 
 filterForm.addEventListener('change', function(event) {
@@ -84,18 +84,29 @@ function fetchArticles(url, title) {
         // articleContent.textContent = article.title; 
         articleContent.style.fontWeight = 'bold';
 
+        const articleDescription = document.createElement('div');
+        articleDescription.classList.add('article-description');
+        articleDescription.style.display = 'flex';
+
         // TODO: Attempt at getting the image for the article
-        // const articleImg = document.createElement('img');
-        // articleImg.classList.add('article-img');
-        // articleImg.src = article.media
+        const articleImg = document.createElement('img');
+        articleImg.classList.add('article-img');
+        // articleImg.style.display = 'flex';
+
+        if (article.media && article.media[0] && article.media[0]['media-metadata'] && article.media[0]['media-metadata'][0] && article.media[0]['media-metadata'][0].url) {
+          articleImg.src = article.media[0]['media-metadata'][0].url;
+        }
 
         const firstSent = article.abstract.split('.')[0];
         const articleFirstSent = document.createElement('div');
-        articleFirstSent.classList.add('article-description');
+        articleFirstSent.classList.add('article-sentence');
+        // articleFirstSent.style.display = 'flex';
         articleFirstSent.textContent = firstSent;
         articleFirstSent.style.fontWeight = 'normal'
-        articleContent.appendChild(articleFirstSent);
 
+        articleDescription.appendChild(articleImg);
+        articleDescription.appendChild(articleFirstSent);
+        articleContent.appendChild(articleDescription);
         articleDiv.appendChild(articleContent);
         container.appendChild(articleDiv);
       });
