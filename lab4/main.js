@@ -76,6 +76,7 @@ function fetchArticles(url, title) {
       articles.forEach(article => {
         const articleDiv = document.createElement('div');
         articleDiv.classList.add('news');
+        articleDiv.style.marginBottom = '25px';
 
         const articleContent = document.createElement('div');
         articleContent.classList.add('article');
