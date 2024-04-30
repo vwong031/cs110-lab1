@@ -85,7 +85,7 @@ function fetchArticles(url, title) {
         titleDiv.style.display = 'flex';
         titleDiv.style.marginLeft = '15px';
 
-        const articleContent = document.createElement('div');
+        const articleContent = document.createElement('h3');
         articleContent.classList.add('article');
         articleContent.textContent = `${counter}) ${article.title}`;
         ++counter;
@@ -102,6 +102,7 @@ function fetchArticles(url, title) {
         publicationDate.style.fontSize = '12px';
         publicationDate.style.color = 'dimgray';
         publicationDate.style.marginTop = '25px';
+        // publicationDate.style.textAlign = 'end';
 
         const articleDescription = document.createElement('div');
         articleDescription.classList.add('article-description');
@@ -125,7 +126,8 @@ function fetchArticles(url, title) {
         const articleFirstSent = document.createElement('div');
         articleFirstSent.classList.add('article-sentence');
         articleFirstSent.textContent = firstSent;
-        articleFirstSent.style.fontWeight = 'normal'
+        articleFirstSent.style.fontWeight = 'normal';
+        articleFirstSent.style.fontSize = '13px';
 
         articleDescription.appendChild(articleImg);
         articleDescription.appendChild(articleFirstSent);
