@@ -77,10 +77,13 @@ function fetchArticles(url, title) {
         const articleDiv = document.createElement('div');
         articleDiv.classList.add('news');
         articleDiv.style.marginBottom = '25px';
+        // articleDiv.style.height = '200px';
+        articleDiv.style.height = 'auto';
 
         const titleDiv = document.createElement('div');
         titleDiv.classList.add('title-div');
         titleDiv.style.display = 'flex';
+        titleDiv.style.marginLeft = '15px';
 
         const articleContent = document.createElement('div');
         articleContent.classList.add('article');
@@ -88,6 +91,7 @@ function fetchArticles(url, title) {
         ++counter;
         // articleContent.textContent = article.title; 
         articleContent.style.fontWeight = 'bold';
+        articleContent.style.marginTop = '25px';
 
         const publicationDate = document.createElement('div');
         publicationDate.classList.add('publication-date');
@@ -97,10 +101,13 @@ function fetchArticles(url, title) {
         publicationDate.style.fontWeight = 'normal';
         publicationDate.style.fontSize = '12px';
         publicationDate.style.color = 'dimgray';
+        publicationDate.style.marginTop = '25px';
 
         const articleDescription = document.createElement('div');
         articleDescription.classList.add('article-description');
         articleDescription.style.display = 'flex';
+        articleDescription.style.marginBottom = '15px';
+        articleDescription.style.marginTop = '15px';
 
         // TODO: Attempt at getting the image for the article
         const articleImg = document.createElement('img');
@@ -111,6 +118,7 @@ function fetchArticles(url, title) {
         }
 
         articleImg.style.borderRadius = '10px';
+        articleImg.style.marginRight = '10px';
         // articleImg.style.width = '150px';
 
         const firstSent = article.abstract.split('.')[0];
