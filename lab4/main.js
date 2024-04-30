@@ -78,12 +78,25 @@ function fetchArticles(url, title) {
         articleDiv.classList.add('news');
         articleDiv.style.marginBottom = '25px';
 
+        const titleDiv = document.createElement('div');
+        titleDiv.classList.add('title-div');
+        titleDiv.style.display = 'flex';
+
         const articleContent = document.createElement('div');
         articleContent.classList.add('article');
         articleContent.textContent = `${counter}) ${article.title}`;
         ++counter;
         // articleContent.textContent = article.title; 
         articleContent.style.fontWeight = 'bold';
+
+        const publicationDate = document.createElement('div');
+        publicationDate.classList.add('publication-date');
+        const date = article.published_date;
+        // const data = new Date(article.published_date);
+        publicationDate.textContent = date;
+        publicationDate.style.fontWeight = 'normal';
+        publicationDate.style.fontSize = '12px';
+        publicationDate.style.color = 'dimgray';
 
         const articleDescription = document.createElement('div');
         articleDescription.classList.add('article-description');
@@ -109,7 +122,9 @@ function fetchArticles(url, title) {
         articleDescription.appendChild(articleImg);
         articleDescription.appendChild(articleFirstSent);
         articleContent.appendChild(articleDescription);
-        articleDiv.appendChild(articleContent);
+        titleDiv.appendChild(articleContent);
+        titleDiv.appendChild(publicationDate);
+        articleDiv.appendChild(titleDiv);
         container.appendChild(articleDiv);
       });
 
