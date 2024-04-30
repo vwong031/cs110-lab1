@@ -96,7 +96,6 @@ function fetchArticles(url, title) {
         const publicationDate = document.createElement('div');
         publicationDate.classList.add('publication-date');
         const date = article.published_date;
-        // const data = new Date(article.published_date);
         publicationDate.textContent = date;
         publicationDate.style.fontWeight = 'normal';
         publicationDate.style.fontSize = '12px';
@@ -116,6 +115,8 @@ function fetchArticles(url, title) {
 
         if (article.media && article.media[0] && article.media[0]['media-metadata'] && article.media[0]['media-metadata'][0] && article.media[0]['media-metadata'][0].url) {
           articleImg.src = article.media[0]['media-metadata'][0].url;
+          articleImg.style.width = '150px';
+          articleImg.style.height = '100px';
         }
 
         articleImg.style.borderRadius = '10px';
