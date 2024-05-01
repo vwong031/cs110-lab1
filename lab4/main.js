@@ -101,6 +101,9 @@ function fetchArticles(url, title) {
         publicationDate.style.fontSize = '12px';
         publicationDate.style.color = 'dimgray';
         publicationDate.style.marginTop = '25px';
+        publicationDate.style.marginLeft = 'auto';
+        publicationDate.style.whiteSpace = 'nowrap';
+        publicationDate.style.marginRight = '10px';
         // publicationDate.style.textAlign = 'end';
 
         const articleDescription = document.createElement('div');
