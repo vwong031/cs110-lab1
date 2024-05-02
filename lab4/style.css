@@ -55,12 +55,17 @@ body {
 @media (max-width: 900px) {
   .filter {
     margin-top: 15px; 
-    margin-left: 295px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .news-container {
-    margin-top: 95px;
-    margin-right: -550px; 
-    /* margin-bottom: 95px; */
+    margin-top: 60px;
+    margin-right: 7.5%; 
+    margin-left: 7.5%; 
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
