@@ -76,8 +76,9 @@ function fetchArticles(url, title) {
 
       articles.forEach(article => {
 
-        if (!article.media || !article.media.length || !article.media[0]['media-metadata'] || !article.media[0]['media-metadata'].length) {
-          return; }
+        if (!article.media || !article.media.length || !article.media[0]['media-metadata'] || !article.media[0]['media-metadata'].length || !article.media[0]['media-metadata'][0].url) {
+          return; 
+        }
 
         const articleDiv = document.createElement('div');
         articleDiv.classList.add('news');
