@@ -12,6 +12,8 @@ sortByInputs.forEach(input => {
   input.addEventListener('change', fetchArticlesOnChange);
 });
 
+//filterForm.addEventListener('change', fetchArticlesOnChange);
+
 function fetchArticlesOnChange() {
   const timeFrame = document.querySelector('input[name="timeFrame"]:checked').value;
   const sortBy = document.querySelector('input[name="sortBy"]:checked').value;
@@ -73,6 +75,10 @@ function fetchArticles(url, title) {
       let counter = 1;
 
       articles.forEach(article => {
+
+        if (!article.media || !article.media.length || !article.media[0]['media-metadata'] || !article.media[0]['media-metadata'].length) {
+          return; }
+
         const articleDiv = document.createElement('div');
         articleDiv.classList.add('news');
         articleDiv.style.marginBottom = '25px';
