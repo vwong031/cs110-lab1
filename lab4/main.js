@@ -114,7 +114,6 @@ function fetchArticles(url, title) {
         articleDescription.style.marginBottom = '15px';
         articleDescription.style.marginTop = '15px';
 
-        // TODO: Attempt at getting the image for the article
         const articleImg = document.createElement('img');
         articleImg.classList.add('article-img');
 
