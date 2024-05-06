@@ -1,3 +1,4 @@
+//Jenny Quan and Valerie Wong
 const apiKey = 'Nnkm8qiRhC7bHsMIENGi1gUk9v2UwQT3'; // Replace 'YOUR_API_KEY' with your actual API key
 const filterForm = document.getElementById('filterForm');
 
@@ -120,7 +121,7 @@ function fetchArticles(url, title) {
 
         if (article.media && article.media[0] && article.media[0]['media-metadata'] && article.media[0]['media-metadata'][0] && article.media[0]['media-metadata'][0].url) {
           articleImg.src = article.media[0]['media-metadata'][0].url;
-          articleImg.style.width = '150px';
+          articleImg.style.width = '100px';
           articleImg.style.height = '100px';
         }
 
