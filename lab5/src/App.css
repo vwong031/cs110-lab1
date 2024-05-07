@@ -1,19 +1,19 @@
 .App {
-  text-align: center;
-  background-color: black;
-  color: white;
-  font-size: large;
+  /* text-align: center; */
+  background-color: rgb(39, 39, 51);
+  /* color: white; */
+  /* font-size: large; */
 }
 
-.main-content {
+/* .main-content {
   display: flex;
   flex-direction: column; 
-}
+} */
 
-.left-section {
+/* .left-section {
   width: 20%;
-}
+} */
 
-.right-section {
+/* .right-section {
   width: 80%;
-}
+} */

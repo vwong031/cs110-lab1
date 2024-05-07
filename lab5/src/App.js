@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Articles from './components/Articles';
 import Title from './components/Title';
+import './App.css'
 
 const apiKey = 'Nnkm8qiRhC7bHsMIENGi1gUk9v2UwQT3';
 
