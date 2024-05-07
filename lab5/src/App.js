@@ -1,23 +1,75 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import Sidebar from './components/Sidebar';
+import Articles from './components/Articles';
+import Title from './components/Title';
+
+const apiKey = 'Nnkm8qiRhC7bHsMIENGi1gUk9v2UwQT3';
 
 function App() {
+  const [title, setTitle] = useState("Day's Most Popular");
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    fetchArticlesOnChange();
+  }, []);
+
+  const fetchArticlesOnChange = () => {
+    const timeFrameInput = document.querySelector('input[name="timeFrame"]:checked');
+    const sortByInput = document.querySelector('input[name="sortBy"]:checked');
+
+    if (!timeFrameInput || !sortByInput) {
+      return; // Return early if inputs are not found
+    }
+
+    const timeFrame = timeFrameInput.value;
+    const sortBy = sortByInput.value;
+
+    let apiUrl;
+
+    // Construct API URL based on selected time frame and sort option
+    if (timeFrame === 'day') {
+      if (sortBy === 'viewed') {
+        apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=' + apiKey;
+      } else if (sortBy === 'shared') {
+        apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/shared/1/facebook.json?api-key=' + apiKey;
+      } else if (sortBy === 'emailed') {
+        apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/emailed/1.json?api-key=' + apiKey;
+      }
+    } else if (timeFrame === 'week') {
+      if (sortBy === 'viewed') {
+        apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=' + apiKey;
+      } else if (sortBy === 'shared') {
+        apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/shared/7/facebook.json?api-key=' + apiKey;
+      } else if (sortBy === 'emailed') {
+        apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=' + apiKey;
+      }
+    } else if (timeFrame === 'month') {
+      if (sortBy === 'viewed') {
+        apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/30.json?api-key=' + apiKey;
+      } else if (sortBy === 'shared') {
+        apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/shared/30/facebook.json?api-key=' + apiKey;
+      } else if (sortBy === 'emailed') {
+        apiUrl = 'https://api.nytimes.com/svc/mostpopular/v2/emailed/30.json?api-key=' + apiKey;
+      }
+    }
+
+    // Fetch articles based on API URL
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        setArticles(data.results);
+        setTitle(`${timeFrame.charAt(0).toUpperCase() + timeFrame.slice(1)}'s Most Popular (${sortBy.charAt(0).toUpperCase() + sortBy.slice(1)})`);
+      })
+      .catch(error => {
+        console.error('Error fetching articles:', error);
+      });
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Title title={title} />
+      <Sidebar fetchArticlesOnChange={fetchArticlesOnChange} />
+      <Articles articles={articles} />
     </div>
   );
 }
