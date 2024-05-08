@@ -1,6 +1,7 @@
 .sidebar {
   background-color: gray;
   display: flex;
+  /* flex-direction: column; */
   width: 210px;
   height: 350px;
   border-radius: 10px;
@@ -21,15 +22,7 @@
 
 .input {
   width: 140px;
-  /* margin-left: 45px;
-  margin-top: 30px; */
   margin-bottom: 15px;
-}
-
-.button {
-  /* width: 60px;
-  margin-left: 85px; */
-  /* margin-right: auto; */
 }
 
 .options-group {
