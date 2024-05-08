@@ -7,7 +7,7 @@ import './App.css'
 const apiKey = 'Nnkm8qiRhC7bHsMIENGi1gUk9v2UwQT3';
 
 function App() {
-  const [title, setTitle] = useState("Day's Most Popular");
+  const [title, setTitle] = useState("");
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
@@ -59,7 +59,8 @@ function App() {
       .then(response => response.json())
       .then(data => {
         setArticles(data.results);
-        setTitle(`${timeFrame.charAt(0).toUpperCase() + timeFrame.slice(1)}'s Most Popular (${sortBy.charAt(0).toUpperCase() + sortBy.slice(1)})`);
+        // TODO: Change title based on sort
+        setTitle(`Most ${sortBy.charAt(0).toUpperCase() + sortBy.slice(1)} - ${timeFrame.charAt(0).toUpperCase() + timeFrame.slice(1)}`);
       })
       .catch(error => {
         console.error('Error fetching articles:', error);
@@ -69,8 +70,10 @@ function App() {
   return (
     <div className="App">
       <Title title={title} />
-      <Sidebar fetchArticlesOnChange={fetchArticlesOnChange} />
-      <Articles articles={articles} />
+      <div class="content">
+        <Sidebar fetchArticlesOnChange={fetchArticlesOnChange} />
+        <Articles articles={articles} />
+      </div>
     </div>
   );
 }

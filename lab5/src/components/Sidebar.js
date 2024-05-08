@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import fetchArticles from './Articles.js';
+// import fetchArticles from './Articles.js';
 import './Sidebar.css'
 
 const Sidebar = ({ fetchArticlesOnChange }) => {
@@ -9,12 +9,22 @@ const Sidebar = ({ fetchArticlesOnChange }) => {
     setSearchTerm(event.target.value);
   };
 
+  const handleSearch = () => {
+    const value = parseInt(searchTerm)
+
+    if (value > 15) {
+      alert("Number is higher than 15");
+    }
+
+    // TODO: Search for the specified article
+  };
+
   return (
     <div class="sidebar">
       <form id="filterForm">
         <div class="input-and-button">
           <input class="input" type="text" placeholder="Enter a value 1-15" value={searchTerm} onChange={handleInputChange} />
-          <button class="button">
+          <button class="button" onClick={handleSearch}>
             Search
           </button>
         </div>

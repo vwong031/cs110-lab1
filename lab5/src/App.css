@@ -5,6 +5,10 @@
   /* font-size: large; */
 }
 
+.content {
+  display: flex;
+}
+
 /* .main-content {
   display: flex;
   flex-direction: column; 

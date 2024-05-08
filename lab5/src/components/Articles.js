@@ -1,4 +1,5 @@
 import React from 'react';
+import './Articles.css'
 
 const Articles = ({ articles }) => {
   if (!articles) {
