@@ -1,5 +1,6 @@
 .news-container {
   margin-top: 90px;
+  /* width: auto; */
   /* margin-bottom: 25px; */
   /* height: auto; */
 }
@@ -31,6 +32,20 @@
 
 }
 
-.articleContent {
+/* .articleContent {
   margin-top: 25px;
+} */
+
+.article-description {
+  display: flex;
+  margin-bottom: 15px;
+  /* margin-top: 15px; */
+}
+
+.article-img {
+  width: auto;
+  height: auto;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  margin-left: 15px;
 }

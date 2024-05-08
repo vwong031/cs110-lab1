@@ -22,7 +22,7 @@ const Articles = ({ articles }) => {
             <div className="article-description">
               {/* Add conditional rendering for nested properties */}
               {article.media && article.media[0] && article.media[0]['media-metadata'] && article.media[0]['media-metadata'][0] && (
-                <img src={article.media[0]['media-metadata'][0].url} alt={article.title} />
+                <img class="article-img" src={article.media[0]['media-metadata'][0].url} alt={article.title} />
               )}
               <div className="article-sentence">{article.abstract.split('.')[0]}</div>
             </div>
