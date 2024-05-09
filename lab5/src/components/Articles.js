@@ -3,17 +3,22 @@ import './Articles.css'
 
 const Articles = ({ articles }) => {
   const [currentPage, setCurrentPage] = useState(1);  // Tracks the page it is at
-  const [articlesPerPage] = useState(6);  // Determine how many articles can be displayed in a page
+  let articlesPerPage = 6;  // Determine how many articles can be displayed in a page
+  let lastPageArticles = articlesPerPage;
+  
+  if (currentPage === 3) {
+    lastPageArticles = 3;
+  }
+  
   const maxArticles = 15;
   const maxPages = Math.ceil(maxArticles / articlesPerPage);
 
-  // const handleArticlesPerPageChange = (e) => {
-  //   setArticlesPerPage(parseInt(e.target.value));
-  //   setCurrentPage(1);
-  // };
-
-  const pageLastArticle = currentPage * articlesPerPage;
-  const pageFirstArticle = pageLastArticle - articlesPerPage;
+  let pageLastArticle = currentPage * articlesPerPage;
+  if (pageLastArticle > 15) {
+    pageLastArticle = 15;
+  }
+  
+  const pageFirstArticle = pageLastArticle - lastPageArticles;
   const currentArticles = articles.slice(pageFirstArticle, pageLastArticle);
 
   const oddArticles = currentArticles.filter((_, index) => index % 2 === 0);
@@ -31,19 +36,18 @@ const Articles = ({ articles }) => {
         <div className="column">
           {oddArticles.map((article, index) => (
            <div className="news" key={index}>
-            <div class="title">
-              <h3 class="titleDiv">
+            <div className="title">
+              <h3 className="titleDiv">
                 {`${pageFirstArticle + index * 2 + 1}) ${article.title}`}
               </h3>
               <div className="publication-date">
                 {article.published_date}
               </div>
             </div>
-            <div class="articleContent">
+            <div className="articleContent">
               <div className="article-description">
-                {/* Add conditional rendering for nested properties */}
                 {article.media && article.media[0] && article.media[0]['media-metadata'] && article.media[0]['media-metadata'][0] && (
-                  <img class="article-img" src={article.media[0]['media-metadata'][0].url} alt={article.title} />
+                  <img className="article-img" src={article.media[0]['media-metadata'][0].url} alt={article.title} />
                 )}
                 <div className="article-sentence">{article.abstract.match(/.*?\./)[0]}</div>
               </div>
@@ -55,19 +59,18 @@ const Articles = ({ articles }) => {
         <div className="column">
           {evenArticles.map((article, index) => (
            <div className="news" key={index}>
-            <div class="title">
-              <h3 class="titleDiv">
+            <div className="title">
+              <h3 className="titleDiv">
                 {`${pageFirstArticle + index * 2 + 2}) ${article.title}`}
               </h3>
               <div className="publication-date">
                 {article.published_date}
               </div>
             </div>
-            <div class="articleContent">
+            <div className="articleContent">
               <div className="article-description">
-                {/* Add conditional rendering for nested properties */}
                 {article.media && article.media[0] && article.media[0]['media-metadata'] && article.media[0]['media-metadata'][0] && (
-                  <img class="article-img" src={article.media[0]['media-metadata'][0].url} alt={article.title} />
+                  <img className="article-img" src={article.media[0]['media-metadata'][0].url} alt={article.title} />
                 )}
                 <div className="article-sentence">{article.abstract.match(/.*?\./)[0]}</div>
               </div>

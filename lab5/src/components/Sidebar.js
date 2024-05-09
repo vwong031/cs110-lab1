@@ -20,18 +20,18 @@ const Sidebar = ({ fetchArticlesOnChange }) => {
   };
 
   return (
-    <div class="sidebar">
+    <div className="sidebar">
       <form id="filterForm">
-        <div class="input-and-button">
-          <input class="input" type="text" placeholder="Enter a value 1-15" value={searchTerm} onChange={handleInputChange} />
-          <button class="button" onClick={handleSearch}>
+        <div className="input-and-button">
+          <input className="input" type="text" placeholder="Enter a value 1-15" value={searchTerm} onChange={handleInputChange} />
+          <button className="button" onClick={handleSearch}>
             Search
           </button>
         </div>
-        <p class="filterTitle">
+        <p className="filterTitle">
           Sort By:
         </p>
-        <div class="options-group">
+        <div className="options-group">
           <div className="option">
             <input type="radio" name="sortBy" value="viewed" onChange={fetchArticlesOnChange} />
             <label htmlFor="viewed">Most Viewed</label>
@@ -48,10 +48,10 @@ const Sidebar = ({ fetchArticlesOnChange }) => {
 
         <br />
 
-        <p class="filterTitle">
+        <p className="filterTitle">
           Time Frame:
         </p>
-        <div class="options-group">
+        <div className="options-group">
           <div className="option">
             <input type="radio" name="timeFrame" value="day" onChange={fetchArticlesOnChange} />
             <label htmlFor="day">Day</label>

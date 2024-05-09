@@ -70,7 +70,7 @@ function App() {
   return (
     <div className="App">
       <Title title={title} />
-      <div class="content">
+      <div className="content">
         <Sidebar fetchArticlesOnChange={fetchArticlesOnChange} />
         <Articles articles={articles} />
       </div>
