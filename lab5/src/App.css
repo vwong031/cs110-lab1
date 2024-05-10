@@ -9,6 +9,30 @@
   display: flex;
 }
 
+@media (max-width: 900px) {
+  .filter {
+    margin-top: 15px; 
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .news-container {
+    margin-top: 60px;
+    margin-right: 7.5%; 
+    margin-left: 7.5%; 
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .content {
+    flex-direction: column;
+  }
+}
+
 /* .main-content {
   display: flex;
   flex-direction: column; 
