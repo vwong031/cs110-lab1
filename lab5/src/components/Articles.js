@@ -72,7 +72,8 @@ const Articles = ({ articles }) => {
                 {article.media && article.media[0] && article.media[0]['media-metadata'] && article.media[0]['media-metadata'][0] && (
                   <img className="article-img" src={article.media[0]['media-metadata'][0].url} alt={article.title} />
                 )}
-                <div className="article-sentence">{article.abstract.match(/.*?\./)[0]}</div>
+                <div className="article-sentence">{article.abstract && article.abstract.match(/.*?\./) && article.abstract.match(/.*?\./)[0]}
+</div>
               </div>
             </div>
           </div>
