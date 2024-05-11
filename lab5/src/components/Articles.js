@@ -23,14 +23,16 @@ const Articles = ({ articles }) => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const renderArticle = (article, index) => {
+  const renderArticle = (article, index, column) => {
     try {
-      const articleNumber = index + 1;
+      const articleNumber = (currentPage - 1) * articlesPerPage + index + 1;
+      const columnOffset = column === 0 ? 0 : Math.ceil(currentArticles.length / 2);
+      const displayedNumber = articleNumber + columnOffset;
   
       return (
         <div className="news" key={index}>
           <div className="title">
-            <h3 className="titleDiv">{`${articleNumber}) ${article.title}`}</h3>
+            <h3 className="titleDiv">{`${displayedNumber}) ${article.title}`}</h3>
             <div className="publication-date">{article.published_date}</div>
           </div>
           <div className="articleContent">
@@ -64,8 +66,8 @@ const Articles = ({ articles }) => {
   return (
     <div className="news-container">
       <div className="columns">
-        <div className="column">{currentArticles.filter((_, index) => index % 2 === 0).map(renderArticle)}</div>
-        <div className="column">{currentArticles.filter((_, index) => index % 2 !== 0).map(renderArticle)}</div>
+        <div className="column">{currentArticles.filter((_, index) => (pageFirstArticle + index + 1) % 2 === 1).map((article, index) => renderArticle(article, index, 0))}</div>
+        <div className="column">{currentArticles.filter((_, index) => (pageFirstArticle + index + 1) % 2 === 0).map((article, index) => renderArticle(article, index, 1))}</div>
       </div>
 
       {articles.length > 0 && (
