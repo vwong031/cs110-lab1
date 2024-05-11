@@ -68,13 +68,15 @@ const Articles = ({ articles }) => {
         <div className="column">{currentArticles.filter((_, index) => index % 2 !== 0).map(renderArticle)}</div>
       </div>
 
-      <div className="pagination">
-        {[...Array(Math.min(maxPages, 3)).keys()].map((number) => (
-          <button className="page-button" key={number + 1} onClick={() => paginate(number + 1)}>
-            {number + 1}
-          </button>
-        ))}
-      </div>
+      {articles.length > 0 && (
+        <div className="pagination">
+          {[...Array(Math.min(maxPages, 3)).keys()].map((number) => (
+            <button className="page-button" key={number + 1} onClick={() => paginate(number + 1)}>
+              {number + 1}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
