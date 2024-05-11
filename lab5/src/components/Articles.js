@@ -2,37 +2,21 @@ import React, { useState } from 'react';
 import './Articles.css';
 
 const Articles = ({ articles }) => {
-  const [currentPage, setCurrentPage] = useState(1); // Tracks the page it is at
-  const articlesPerPage = 6; // Determine how many articles can be displayed in a page
-  let lastPageArticles = articlesPerPage;
-  
-  if (currentPage === 3) {
-    lastPageArticles = 3;
-  }
-  
+  const [currentPage, setCurrentPage] = useState(1);
+  const articlesPerPage = 6;
   const maxArticles = 15;
   const maxPages = Math.ceil(maxArticles / articlesPerPage);
 
-  let pageLastArticle = currentPage * articlesPerPage;
-  if (pageLastArticle > 15) {
-    pageLastArticle = 15;
-  }
-  
-  const pageFirstArticle = pageLastArticle - lastPageArticles;
-  const currentArticles = articles.slice(pageFirstArticle, pageLastArticle);
-
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const renderArticle = (article, index, column) => {
+  const renderArticle = (article, index) => {
+    const articleNumber = (currentPage - 1) * articlesPerPage + index + 1;
+
     try {
-      const articleNumber = (currentPage - 1) * articlesPerPage + index + 1;
-      const columnOffset = column === 0 ? 0 : Math.ceil(currentArticles.length / 2);
-      const displayedNumber = articleNumber + columnOffset;
-  
       return (
         <div className="news" key={index}>
           <div className="title">
-            <h3 className="titleDiv">{`${displayedNumber}) ${article.title}`}</h3>
+            <h3 className="titleDiv">{`${articleNumber}) ${article.title}`}</h3>
             <div className="publication-date">{article.published_date}</div>
           </div>
           <div className="articleContent">
@@ -60,14 +44,24 @@ const Articles = ({ articles }) => {
         </div>
       );
     }
-  };  
-  
+  };
+
+  const pageFirstArticle = (currentPage - 1) * articlesPerPage;
+  const pageLastArticle = Math.min(currentPage * articlesPerPage, maxArticles);
+  const currentArticles = articles.slice(pageFirstArticle, pageLastArticle);
+
+  const leftColumnArticles = currentArticles.filter((_, index) => index % 2 === 0);
+  const rightColumnArticles = currentArticles.filter((_, index) => index % 2 !== 0);
 
   return (
     <div className="news-container">
       <div className="columns">
-        <div className="column">{currentArticles.filter((_, index) => (pageFirstArticle + index + 1) % 2 === 1).map((article, index) => renderArticle(article, index, 0))}</div>
-        <div className="column">{currentArticles.filter((_, index) => (pageFirstArticle + index + 1) % 2 === 0).map((article, index) => renderArticle(article, index, 1))}</div>
+        <div className="column">
+          {leftColumnArticles.map((article, index) => renderArticle(article, index * 2))}
+        </div>
+        <div className="column">
+          {rightColumnArticles.map((article, index) => renderArticle(article, index * 2 + 1))}
+        </div>
       </div>
 
       {articles.length > 0 && (
