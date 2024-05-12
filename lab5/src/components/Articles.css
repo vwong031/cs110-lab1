@@ -54,7 +54,7 @@
 
 .article-img {
   width: auto;
-  height: auto;
+  height: 100%;
   margin-right: 10px;
   margin-bottom: 15px;
   margin-left: 15px;
@@ -62,9 +62,10 @@
 
 @media (max-width: 900px) {
   .article-img {
-    max-width: auto; 
-    max-height: auto;
+    max-width: 70px; 
+    max-height: 70px;
     margin-bottom: auto;
+    align-items: center;
   }
 
   .news {
@@ -75,7 +76,11 @@
   }
 
   .article-sentence {
-    margin-top: auto;
+    justify-content: top; 
+    align-items: center;
+    width: auto;
+    height: 100%;
+    font-size: 12px;
   }
   
 }
