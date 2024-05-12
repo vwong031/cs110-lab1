@@ -35,3 +35,11 @@
   font-weight: bold;
   margin-left: 15px;
 }
+
+@media (max-width: 900px) {
+  .sidebar {
+    margin-top: 15px; 
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
