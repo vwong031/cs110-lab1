@@ -14,7 +14,7 @@ function App() {
     fetchArticlesOnChange();
   }, []);
 
-  const fetchArticlesOnChange = (articleNumber = null) => {
+  const fetchArticlesOnChange = (numArticles) => {
     const timeFrameInput = document.querySelector('input[name="timeFrame"]:checked');
     const sortByInput = document.querySelector('input[name="sortBy"]:checked');
 
@@ -55,31 +55,19 @@ function App() {
     }
 
     // Fetch articles based on API URL
-    /*fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => {
-        setArticles(data.results);
-        setTitle(`Most ${sortBy.charAt(0).toUpperCase() + sortBy.slice(1)} - ${timeFrame.charAt(0).toUpperCase() + timeFrame.slice(1)}`);
-
-      })
-      .catch(error => {
-        console.error('Error fetching articles:', error);
-      });*/
-
-      fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => {
-        if (articleNumber) {
-          setArticles([articleNumber]);
-          setTitle(`Article ${articleNumber}`);
-        } else {
-          setArticles(data.results);
-          setTitle(`Most ${sortBy.charAt(0).toUpperCase() + sortBy.slice(1)} - ${timeFrame.charAt(0).toUpperCase() + timeFrame.slice(1)}`);
-        }
-      })
-      .catch(error => {
-        console.error('Error fetching articles:', error);
-      });
+    fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      let articlesToShow = data.results;
+      if (numArticles && !isNaN(numArticles)) {
+        articlesToShow = data.results.slice(0, parseInt(numArticles));
+      }
+      setArticles(articlesToShow);
+      setTitle(`Most ${sortBy.charAt(0).toUpperCase() + sortBy.slice(1)} - ${timeFrame.charAt(0).toUpperCase() + timeFrame.slice(1)}`);
+    })
+    .catch(error => {
+      console.error('Error fetching articles:', error);
+    });
 
   };
 

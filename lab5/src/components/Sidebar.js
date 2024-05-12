@@ -20,13 +20,14 @@ const Sidebar = ({ fetchArticlesOnChange }) => {
       return;
     }
 
-    if (value < 1 || value > 15) {
+    if (value < 1 || value > 15 ) {
       alert("Please enter a value between 1 and 15");
       return;
-    }
+    } 
 
     fetchArticlesOnChange(value);
   };
+
 
   const renderSearchResult = () => {
     if (searchResult) {
