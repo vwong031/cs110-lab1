@@ -9,6 +9,8 @@
 }
 
 .news {
+  display: flex;
+  flex-direction: column;
   background-color: aliceblue;
   margin-bottom: 25px;
   /* flex: 1; */
@@ -41,6 +43,7 @@
 .articleContent {
   margin-right: 15px;
   margin-top: -10px;
+  overflow: scroll;
   /* margin-bottom: 50px; */
 }
 
@@ -50,6 +53,7 @@
   color: dimgray;
   margin-left: 10px;
   margin-top: auto; 
+  flex-grow: 1;
 }
 
 .article-img {
