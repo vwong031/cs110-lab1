@@ -41,7 +41,7 @@ async function loadBooks () {
 
 loadBooks();
 
-async funtion setEditModal (isbn) {
+async function setEditModal (isbn) {
 
   let reponse = await fetch(`https://localhost:3000/book/{isbn}`);
 
@@ -67,7 +67,7 @@ async funtion setEditModal (isbn) {
     document.getElementById('publish_date').value = publish_date;
     document.getElementById('numOfPages').value = numOfPages;
 
-    document.getElementById('editForm').action = `https://localhost:3000/book/{isbn}`;
+    document.getElementById('editForm').action = `https://localhost:3000/book/${isbn}`;
   }
 
 
