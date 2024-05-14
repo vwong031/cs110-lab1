@@ -15,8 +15,11 @@ app.use(bodyParser.urlencoded({extended: false }));
 app.use(bodyParser.json());
 
 app.get('/books', (req, res) => {
+  const book = req.userId;
+
   res.json(books);
 });
+
 
 app.post('/book', (req, res) => {
     const book = req.body;
@@ -25,6 +28,18 @@ app.post('/book', (req, res) => {
     books.push(book);
 
     res.send('Book is added to the database');
+});
+
+app.get('/book/:isbn', (req, res) => {
+  const isbn = req.params.isbn;
+  const book = books.find(book => book.isbn === isbn);
+
+  if (book) {
+    res.json(book);
+  }
+  else {
+    res.status(404).json({ error: 'Book not found'});
+  }
 });
 
 app.post('/book/:isbn', (req, res) => {
@@ -44,4 +59,4 @@ app.post('/book/:isbn', (req, res) => {
   res.send('Book is edited');
 });
 
-app.listen(port, () => console.log('Hello world app listening on port 3000'))
+app.listen(port, () => console.log('Hello world app listening on port 3000'));
