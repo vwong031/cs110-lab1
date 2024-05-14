@@ -43,12 +43,12 @@ loadBooks();
 
 async function setEditModal (isbn) {
 
-  let reponse = await fetch(`https://localhost:3000/book/{isbn}`);
+  let response = await fetch(`https://localhost:3000/book/${isbn}`);
 
-  console.log(reponse.status);
-  console.log(reponse.statusText);
+  console.log(response.status);
+  console.log(response.statusText);
   if (response.status === 200) {
-    let data = await response.text();
+    let data = await response.json();
     console.log(data);
     const book = JSON.parse(data);
 
