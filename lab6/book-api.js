@@ -56,4 +56,12 @@ app.get('/book/:isbn', (req, res) => {
   }
 });
 
+app.delete('/book/:isbn', (req, res) => {
+  const isbn = req.params.isbn;
+
+  books = books.filter(book => book.isbn != isbn);
+
+  res.send('Book is deleted');
+});
+
 app.listen(port, () => console.log('Hello world app listening on port 3000'));

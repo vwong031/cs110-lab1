@@ -33,8 +33,12 @@ async function loadBooks () {
           </div>
         </div>
       `
-
-      document.getElementById('books').innerHTML = document.getElementById('books').innerHTML + x;
+      if (document.getElementById('books').innerHTML === '') {
+        document.getElementById('books').innerHTML = x;
+      }
+      else {
+        document.getElementById('books').innerHTML = document.getElementById('books').innerHTML + x;
+      }
     }
   }
 }
@@ -69,6 +73,16 @@ async function setEditModal (isbn) {
 
     document.getElementById('editForm').action = `https://localhost:3000/book/${isbn}`;
   }
+}
 
+async function deleteBook(isbn) {
+  let response = await fetch(`http://localhost:3000/book/${isbn}`, { method: 'DELETE' });
 
+  console.log(response.status);
+  console.log(response.statusText);
+
+  if (response.status == 200) {
+    console.log('Book deleted');
+    loadBooks();
+  }
 }
