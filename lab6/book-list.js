@@ -9,6 +9,7 @@ async function loadBooks () {
     let data = await response.text();
     console.log(data);
     const books = JSON.parse(data);
+    const booksContainer = document.getElementById('books');
 
     for (let book of books) {
       const x = `
@@ -33,13 +34,18 @@ async function loadBooks () {
           </div>
         </div>
       `
-      if (document.getElementById('books').innerHTML === '') {
-        document.getElementById('books').innerHTML = x;
-      }
-      else {
-        document.getElementById('books').innerHTML = document.getElementById('books').innerHTML + x;
-      }
+
+      booksContainer.insertAdjacentHTML('beforeend', x);
+      // if (document.getElementById('books').innerHTML === '') {
+      //   document.getElementById('books').innerHTML = x;
+      // }
+      // else {
+      //   document.getElementById('books').innerHTML = document.getElementById('books').innerHTML + x;
+      // }
     }
+  }
+  else {
+    console.error('Failed to load books: ', response.statusText);
   }
 }
 
