@@ -31,17 +31,15 @@ app.post('/book/:isbn', (req, res) => {
   const isbn = req.params.isbn;
   const newBook = req.body;
 
-  for (let i = 0; i < books.length; i++)
-  {
-    let book = books[i]
+  const index = books.findIndex(book => book.isbn === isbn);
 
-    if (book.isbn === isbn)
-    {
-      books[i] = newBook;
+    if (index !== -1) {
+        books[index] = newBook;
+        res.json(newBook);
+        res.send('Book is edited');
+    } else {
+        res.status(404).send('Book not found');
     }
-  }
-
-  res.send('Book is edited');
 });
 
 app.get('/book/:isbn', (req, res) => {
@@ -59,9 +57,15 @@ app.get('/book/:isbn', (req, res) => {
 app.delete('/book/:isbn', (req, res) => {
   const isbn = req.params.isbn;
 
-  books = books.filter(book => book.isbn != isbn);
+  const initialLength = books.length; 
 
-  res.send('Book is deleted');
+  books = books.filter(book => book.isbn !== isbn); 
+
+  if (books.length === initialLength - 1) {
+    res.send('Book is deleted'); 
+  } else {
+    res.status(404).send('Book not found'); 
+  }
 });
 
 app.listen(port, () => console.log('Hello world app listening on port 3000'));
