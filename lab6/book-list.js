@@ -71,7 +71,7 @@ async function setEditModal (isbn) {
     document.getElementById('publish_date').value = publish_date;
     document.getElementById('numOfPages').value = numOfPages;
 
-    document.getElementById('editForm').action = `https://localhost:3000/book/${isbn}`;
+    document.getElementById('editForm').action = `http://localhost:3000/book/${isbn}`;
   }
 }
 
