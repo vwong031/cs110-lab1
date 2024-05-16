@@ -11,7 +11,6 @@ async function loadBooks() {
     const booksContainer = document.getElementById('books');
 
     for (let book of books) {
-      console.log("Number of pages:", book.numOfPages);
       const x = `
         <div class="col-4">
           <div class="card">
@@ -102,7 +101,7 @@ async function setEditModal(isbn) {
 
       if (response.status === 200) {
         console.log('Book is edited');
-        loadBooks();
+        //loadBooks();
         $('#editBookModal').modal('hide');
       } else {
         console.log('Failed to edit book');
