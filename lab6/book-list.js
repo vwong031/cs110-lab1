@@ -1,5 +1,4 @@
-async function loadBooks () {
-
+async function loadBooks() {
   let response = await fetch("http://localhost:3000/books");
 
   console.log(response.status);
@@ -12,6 +11,7 @@ async function loadBooks () {
     const booksContainer = document.getElementById('books');
 
     for (let book of books) {
+      console.log("Number of pages:", book.numOfPages);
       const x = `
         <div class="col-4">
           <div class="card">
@@ -25,23 +25,20 @@ async function loadBooks () {
 
               <hr>
 
-              <button type="button" class="btn btn-danger">Delete</button>
+              <button type="button" class="btn btn-danger" onclick="deleteBook('${book.isbn}')">Delete</button>
               <button type="button" class="btn btn-primary" data-toggle="modal"
                 data-target="#editBookModal" onClick="setEditModal(${book.isbn})">
                 Edit
-                </button>
+              </button>
             </div>
           </div>
         </div>
-      `
-
-      booksContainer.insertAdjacentHTML('beforeend', x);
-      // if (document.getElementById('books').innerHTML === '') {
-      //   document.getElementById('books').innerHTML = x;
-      // }
-      // else {
-      //   document.getElementById('books').innerHTML = document.getElementById('books').innerHTML + x;
-      // }
+      `;
+      if (document.getElementById('books').innerHTML === '') {
+        document.getElementById('books').innerHTML = x;
+      } else {
+        document.getElementById('books').innerHTML += x;
+      }
     }
   }
   else {
@@ -51,8 +48,7 @@ async function loadBooks () {
 
 loadBooks();
 
-async function setEditModal (isbn) {
-
+async function setEditModal(isbn) {
   let response = await fetch(`http://localhost:3000/book/${isbn}`);
 
   console.log(response.status);
@@ -77,7 +73,41 @@ async function setEditModal (isbn) {
     document.getElementById('publish_date').value = publish_date;
     document.getElementById('numOfPages').value = numOfPages;
 
-    document.getElementById('editForm').action = `http://localhost:3000/book/${isbn}`;
+    document.getElementById('editForm').addEventListener('submit', async function(event) {
+      event.preventDefault();
+
+      const formData = new FormData(event.target);
+
+      const newBook = {
+        isbn: formData.get('isbn'),
+        title: formData.get('title'),
+        author: formData.get('author'),
+        publish_date: formData.get('publish_date'),
+        publisher: formData.get('publisher'),
+        numOfPages: formData.get('numOfPages')
+      };
+
+      let isbn = newBook.isbn;
+
+      let response = await fetch(`http://localhost:3000/book/${isbn}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newBook),
+      });
+
+      console.log(response.status);
+      console.log(response.statusText);
+
+      if (response.status === 200) {
+        console.log('Book is edited');
+        loadBooks();
+        $('#editBookModal').modal('hide');
+      } else {
+        console.log('Failed to edit book');
+      }
+    });
   }
 }
 
@@ -89,6 +119,10 @@ async function deleteBook(isbn) {
 
   if (response.status == 200) {
     console.log('Book deleted');
-    loadBooks();
+    const cardToRemove = document.querySelector(`[data-isbn="${isbn}"]`);
+    if (cardToRemove) {
+      cardToRemove.remove();
+    }
+    //loadBooks();
   }
 }
