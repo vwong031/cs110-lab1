@@ -8,7 +8,6 @@ async function loadBooks() {
     let data = await response.text();
     console.log(data);
     const books = JSON.parse(data);
-    const booksContainer = document.getElementById('books');
 
     for (let book of books) {
       const x = `
@@ -39,9 +38,6 @@ async function loadBooks() {
         document.getElementById('books').innerHTML += x;
       }
     }
-  }
-  else {
-    console.error('Failed to load books: ', response.statusText);
   }
 }
 
@@ -89,7 +85,7 @@ async function setEditModal(isbn) {
       let isbn = newBook.isbn;
 
       let response = await fetch(`http://localhost:3000/book/${isbn}`, {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -118,9 +114,13 @@ async function deleteBook(isbn) {
 
   if (response.status == 200) {
     console.log('Book deleted');
-    const cardToRemove = document.querySelector(`[data-isbn="${isbn}"]`);
+    const cardToRemove = document.querySelector(`div[data-isbn="${isbn}"]`);
     if (cardToRemove) {
+      print(cardToRemove)
       cardToRemove.remove();
+    }
+    else {
+      console.error('Failed to delete the book:', response.statusText);
     }
     //loadBooks();
   }

@@ -27,14 +27,14 @@ app.post('/book', (req, res) => {
     res.send('Book is added to the database');
 });
 
-app.post('/book/:isbn', (req, res) => {
+app.put('/book/:isbn', (req, res) => {
   const isbn = req.params.isbn;
   const newBook = req.body;
 
   const index = books.findIndex(book => book.isbn === isbn);
 
     if (index !== -1) {
-        books[index] = newBook;
+        books[index] = {...books[index], ...newBook};
         res.json(newBook);
         res.send('Book is edited');
     } else {
@@ -56,6 +56,7 @@ app.get('/book/:isbn', (req, res) => {
 
 app.delete('/book/:isbn', (req, res) => {
   const isbn = req.params.isbn;
+  console.log("isbn:", {isbn})
 
   const initialLength = books.length; 
 
