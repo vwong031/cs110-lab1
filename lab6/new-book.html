@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      max-width: auto;
+      padding: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left; 
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      text-align: left; 
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      text-align: left; 
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+
+<script>
+  function viewBooks() {
+    window.location.href = "book-list.html";
+  }
+</script>
+</head>
+<body>
+  <div class="container">
+    <hr>
+    <h1>Create New Book</h1>
+    <hr>
+  
+    <form action="http://localhost:3000/book" method="POST">
+      <div class="form-group">
+        <label for="ISBN">ISBN</label>
+        <input class="form-control" name="isbn" id="ISBN">
+      </div>
+  
+      <div class="form-group">
+        <label for="Title">Title</label>
+        <input class="form-control" name="title" id="Title">
+      </div>
+  
+      <div class="form-group">
+        <label for="Author">Author</label>
+        <input class="form-control" name="author" id="Author">
+      </div>
+  
+      <div class="form-group">
+        <label for="Date">Published Date</label>
+        <input class="form-control" name="date" id="Date">
+      </div>
+  
+      <div class="form-group">
+        <label for="Publisher">Publisher</label>
+        <input class="form-control" name="publisher" id="Publisher">
+      </div>
+  
+      <div class="form-group">
+        <label for="numOfPages">Number of Pages</label>
+        <input class="form-control" name="numOfPages" id="numOfPages">
+      </div>
+  
+      <button type="button" class="btn btn-primary" onclick="viewBooks()">Current Books</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
