@@ -32,6 +32,8 @@ async function loadBooks() {
           </div>
         </div>
       `;
+
+      console.log("Num of Pages:", book.numOfPages);
       if (document.getElementById('books').innerHTML === '') {
         document.getElementById('books').innerHTML = x;
       } else {
