@@ -47,6 +47,12 @@
       background-color: #0056b3;
     }
   </style>
+
+<script>
+  function viewBooks() {
+    window.location.href = "book-list.html";
+  }
+</script>
 </head>
 <body>
   <div class="container">
@@ -85,6 +91,7 @@
         <input class="form-control" name="page" id="Page">
       </div>
   
+      <button type="button" class="btn btn-primary" onclick="viewBooks()">Current Books</button>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
