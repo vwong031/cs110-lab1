@@ -1,2 +1,19 @@
-<h1> Home </h1>
-<p>This is the {{ title }} page</p>
+<!DOCTYPE html>
+<head>
+  <title>Home Page</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  {{!-- <h1> Home </h1>
+  <p>This is the {{ title }} page</p> --}}
+  <h1>Welcome to Chat Rooms</h1>
+  <form id="create-room-form">
+    <button type="submit">Create New Room</button>
+  </form>
+  <ul id="room-list">
+    {{#each rooms}}
+    <li><a href="/{{this}}">{{this}}</a></li>
+    {{/each}}
+  </ul>
+</body>
+</html>
