@@ -1,1 +1,30 @@
 /* TODO: style each page */
+body {
+  font-family: Arial, sans-serif;
+}
+
+#chat-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#chat-window {
+  height: 300px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+#output {
+  padding: 10px;
+}
+
+#message {
+  width: calc(100% - 70px);
+  padding: 10px;
+}
+
+button {
+  padding: 5px;
+}

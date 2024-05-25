@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <head>
-  <title>Chat Room</title>
+  <title>Chat Room {{ roomName }}</title>
   <link rel="stylesheet" href="/css/style.css">
+  <script defer src="../controllers/room.js"></script>
 </head>
 <body>
   <h1>Chat Room: {{ roomName }} </h1>
-  <div id="chat-container">
+
+  <div id="nickname-prompt" style="display: none;">
+    <label for="nickname">Enter your nickname:</label>
+    <input type="text" id="nickname" placeholder="Nickname">
+    <button onclick="saveNickname()">Join Chat</button>
+  </div>
+
+  <div id="chat-container" style="display: none;">
     <div id="chat-window">
       <div id="output"></div>
       <div id="feedback"></div>
@@ -13,10 +21,5 @@
     <input id="message" type="text" placeholder="Enter message">
     <button id="send" onclick="sendMessage()">Send</button>
   </div>
-  {{!-- <p>This is a demo of chatroom page</p>
-  <p>
-      The room you are visiting is {{ roomName }}
-  </p>
-  <p>To generate a new room, here is the room id: {{ newRoomId }}</p> --}}
 </body>
 </html>
