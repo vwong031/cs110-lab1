@@ -21,5 +21,63 @@
     <input id="message" type="text" placeholder="Enter message">
     <button id="send" onclick="sendMessage()">Send</button>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const nickname = localStorage.getItem('nickname');
+
+      if (!nickname) {
+        document.getElementById('nickname-prompt').style.display = 'block';
+      }
+      else {
+        document.getElementById('nickname-prompt').style.display = 'none';
+        document.getElementById('chat-container').style.display = 'block';
+        initializeChat(nickname);
+      }
+    });
+
+    function saveNickname() {
+      const nickname = document.getElementById('nickname').value;
+
+      if (nickname) {
+        localStorage.setItem('nickname', nickname);
+        document.getElementById('nickname-prompt').style.display = 'none';
+        document.getElementById('chat-container').style.display = 'block';
+        initializeChat(nickname);
+      }
+    }
+
+    function initializeChat(nickname) {
+      setInterval(loadMessages, 3000);
+      loadMessages();
+
+      function loadMessages() {
+        fetch(`/{{roomName}}/messages`)
+          .then(response => response.json())
+          .then(messages => {
+            const output = document.getElementById('output');
+            output.innerHTML = messages.map(msg => `<p><strong>${msg.nickname}:</strong> ${msg.text} <span>${msg.datetime}</span></p>`).join('');
+          });
+      }
+    }
+
+    function sendMessage() {
+      const messageInput = document.getElementById('message');
+      const message = {
+        nickname: localStorage.getItem('nickname'),
+        text: messageInput.value,
+        datetime: new Date().toLocaleString()
+      };
+
+      fetch(`/{{roomName}}/messages`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify(message)
+      }).then(() => {
+        messageInput.value = '';
+        loadMessages();
+      });
+    }
+  </script>
 </body>
 </html>

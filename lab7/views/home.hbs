@@ -13,8 +13,41 @@
   <h2>Existing Chat Rooms</h2>
   <ul id="room-list">
     {{#each rooms}}
-    <li><a href="/{{this}}">{{this}}</a></li>
+    <li><a href="/{{ this.RoomName }}">{{ this.roomName }}</a></li>
     {{/each}}
   </ul>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const createRoomForm = document.getElementById('create-room-form');
+
+    createRoomForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      fetch('/create', { method: 'POST' })
+        .then(response => response.text())
+        .then(roomName => {
+          window.location.href = `/${roomName}`;
+        })
+        .catch(error => console.error('Error creating room:', error));
+    });
+
+    // Fetch the list of existing chat rooms and display them
+    fetch('/rooms')
+      .then(response => response.json())
+      .then(rooms => {
+        const roomList = document.getElementById('room-list');
+        roomList.innerHTML = '';
+        rooms.forEach(room => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = `/${room.roomName}`;
+          a.textContent = room.roomName;
+          li.appendChild(a);
+          roomList.appendChild(li);
+        });
+      })
+      .catch(error => console.error('Error fetching rooms:', error));
+    });
+  </script>
 </body>
 </html>
