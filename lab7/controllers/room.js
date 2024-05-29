@@ -4,29 +4,29 @@ const roomGenerator = require('../util/roomIdGenerator.js');
 
 // Example for handle a get request at '/:roomName' endpoint.
 async function getRoom(request, response){
-  const Room = request.app.locals.Room;
-  const Message = request.app.locals.Message;
+  // const Room = request.app.locals.Room;
+  // const Message = request.app.locals.Message;
   
-  const roomName = request.params.roomName;
+  // const roomName = request.params.roomName;
 
-  try {
-    const room = await Room.findOne({ roomName });
+  // try {
+  //   const room = await Room.findOne({ roomName });
 
-    if (!room) {
-      return response.status(404).send('Room not found');
-    }
+  //   if (!room) {
+  //     return response.status(404).send('Room not found');
+  //   }
 
-    const messages = await Message.find({ roomName }).sort({ datetime: 1 });
+  //   const messages = await Message.find({ roomName }).sort({ datetime: 1 });
 
-    response.render('room', {
-      title: 'Chat Room',
-      roomName: roomName,
-      messages: messages, 
-      newRoomId: roomGenerator.roomIdGenerator()
-    });
-  } catch (err) {
-    response.status(500).send('Error finding room or retrieving messages');
-  }
+  //   response.render('room', {
+  //     title: 'Chat Room',
+  //     roomName: roomName,
+  //     messages: messages, 
+  //     newRoomId: roomGenerator.roomIdGenerator()
+  //   });
+  // } catch (err) {
+  //   response.status(500).send('Error finding room or retrieving messages');
+  // }
 
   // Room.findOne({ roomName }, (err, room) => {
   //   if (err) {

@@ -11,9 +11,15 @@ const roomHandler = require('./controllers/room.js');
 
 const roomIdGenerator = require('./util/roomIdGenerator.js');
 
-mongoose.connect('mongodb://localhost:27017/', {
+const uri = 'mongodb+srv://vkwong825:5G375Eqk8ckMKonb@cluster0.senkrsu.mongodb.net/sample_mflix?retryWrites=true&w=majority&appName=Cluster0';
+
+mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true
+}).then(() => {
+  console.log("Connected to MongoDB");
+}).catch(err => {
+  console.error("Error connecting to MongoDB", err);
 });
 
 const app = express();
