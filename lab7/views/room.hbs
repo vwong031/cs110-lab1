@@ -20,6 +20,7 @@
     </div>
     <input id="message" type="text" placeholder="Enter message">
     <button id="send" onclick="sendMessage()">Send</button>
+    <button id="back" onclick="home()">Back</button>
   </div>
 
   <script>
@@ -30,6 +31,7 @@
         document.getElementById('nickname-prompt').style.display = 'block';
       }
       else {
+        document.getElementById('nickname').value = nickname;
         document.getElementById('nickname-prompt').style.display = 'none';
         document.getElementById('chat-container').style.display = 'block';
         initializeChat(nickname);
@@ -77,6 +79,10 @@
         messageInput.value = '';
         loadMessages();
       });
+    }
+
+    function home() {
+      window.location.href = `/`; 
     }
   </script>
 </body>
