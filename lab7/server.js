@@ -1,16 +1,16 @@
-// import dependencies
+
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const hbs = require('express-handlebars');
 const path = require('path');
 const mongoose = require('mongoose');
 
-// import handlers
+
 const homeHandler = require('./controllers/home.js');
 const roomHandler = require('./controllers/room.js');
 const roomIdGenerator = require('./util/roomIdGenerator.js');
 
-mongoose.connect('mongodb://localhost:27017/mydatabase') // Specify your database name here
+mongoose.connect('mongodb://localhost:27017/mydatabase') 
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
@@ -22,12 +22,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// view engine setup
+
 app.engine('hbs', hbs({ extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/' }));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-// Define schemas and models
+
 const messageSchema = new mongoose.Schema({
   roomName: String,
   nickname: String,
@@ -45,12 +45,11 @@ const Room = mongoose.model('Room', roomSchema);
 app.locals.Message = Message;
 app.locals.Room = Room;
 
-// Create controller handlers to handle requests at each endpoint
 app.get('/', homeHandler.getHome);
 
 app.get('/rooms', async (req, res) => {
   try {
-    const rooms = await Room.find().select('roomName -_id'); // Select only the roomName field
+    const rooms = await Room.find().select('roomName -_id'); 
     res.json(rooms);
   } catch (err) {
     console.error('Error retrieving rooms:', err);
@@ -103,12 +102,11 @@ app.post('/:roomName/messages', async (req, res) => {
 
 app.get('/:roomName', roomHandler.getRoom);
 
-// Global error handler
+
 app.use((err, req, res, next) => {
   console.error('Error stack:', err.stack);
   res.status(500).json({
     message: 'Internal Server Error',
-    error: err.message, // Include this in development, remove in production
   });
 });
 

@@ -34,10 +34,10 @@ document.addEventListener('DOMContentLoaded', function() {
         refreshMessages();
         form.reset();
       } else {
-        console.error('Failed to send message:', response.status); // Add error handling
+        console.error('Failed to send message:', response.status); 
       }
     })
-    .catch(error => console.error('Error sending message:', error)); // Add error handling
+    .catch(error => console.error('Error sending message:', error)); 
   });
 
   setInterval(refreshMessages, 3000);
